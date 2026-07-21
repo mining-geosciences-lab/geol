@@ -97,23 +97,29 @@
   .strata-bar div:nth-child(5){background:var(--blue);}
   .strata-bar div:nth-child(6){background:var(--purple);}
 
-  .hero{
-    max-width:900px; margin:0 auto; padding:80px 32px 64px;
+  .hero-split{
+    display:grid; grid-template-columns:1.05fr 1fr;
+    min-height:540px;
   }
-  .hero-content{display:flex; flex-direction:column; align-items:center; text-align:center;}
+  .hero-image{overflow:hidden; background:var(--ink);}
+  .hero-image img{width:100%; height:100%; object-fit:cover; display:block;}
+  .hero-content-split{
+    display:flex; flex-direction:column; justify-content:center;
+    padding:56px 64px;
+  }
   .eyebrow{
     font-size:12px; font-weight:700; letter-spacing:1.6px; text-transform:uppercase;
     color:var(--purple); margin-bottom:18px;
   }
   h1{
-    font-size:56px; font-weight:800; line-height:1.08; letter-spacing:-1px;
-    max-width:720px; margin-bottom:22px;
+    font-size:42px; font-weight:800; line-height:1.1; letter-spacing:-1px;
+    margin-bottom:20px;
   }
   h1 span{color:var(--purple);}
   .hero-desc{
-    font-size:17px; color:var(--stone); max-width:600px; margin-bottom:32px; font-weight:500;
+    font-size:16px; color:var(--stone); margin-bottom:32px; font-weight:500; line-height:1.65;
   }
-  .hero-actions{display:flex; gap:14px; flex-wrap:wrap; justify-content:center;}
+  .hero-actions{display:flex; gap:14px; flex-wrap:wrap;}
   .btn{
     display:inline-flex; align-items:center; gap:8px;
     padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700;
@@ -124,14 +130,15 @@
   .btn-ghost{border:1.5px solid var(--stone-line); color:var(--ink);}
   .btn-ghost:hover{border-color:var(--purple); color:var(--purple);}
 
+  .hero-stats-band{border-bottom:1px solid var(--stone-line); padding:28px 32px;}
   .hero-stats{
-    display:flex; align-items:center; justify-content:center; gap:40px; margin-top:52px; padding-top:32px;
-    border-top:1px solid var(--stone-line); width:100%;
+    display:flex; align-items:center; justify-content:center; gap:40px;
+    max-width:1180px; margin:0 auto;
   }
-  .hero-stats>div:not(.stat-divider){max-width:170px;}
+  .hero-stats>div:not(.stat-divider){max-width:none; display:flex; align-items:baseline; gap:10px;}
   .stat-divider{width:1px; height:36px; background:var(--stone-line);}
-  .stat-num{font-size:28px; font-weight:800; color:var(--purple);}
-  .stat-label{font-size:12px; color:var(--stone); font-weight:600; letter-spacing:0.3px; margin-top:4px;}
+  .stat-num{font-size:28px; font-weight:800; color:var(--purple); white-space:nowrap;}
+  .stat-label{font-size:13px; color:var(--stone); font-weight:600; letter-spacing:0.3px; text-align:left; white-space:nowrap;}
 
   /* ===== SECTIONS ===== */
   section{padding:72px 32px;}
@@ -192,14 +199,14 @@
   .footer-top{
     display:flex; justify-content:space-between; gap:40px; flex-wrap:wrap; margin-bottom:32px;
   }
-  .footer-brand p{font-size:13px; color:var(--stone); max-width:280px; margin-top:10px; font-weight:500;}
+  .footer-brand p{font-size:13px; color:var(--purple); max-width:280px; margin-top:10px; font-weight:600;}
   .footer-cols{display:flex; gap:56px; flex-wrap:wrap;}
-  .footer-col h4{font-size:12px; font-weight:700; letter-spacing:0.5px; text-transform:uppercase; color:var(--stone); margin-bottom:14px;}
-  .footer-col a{display:block; font-size:14px; font-weight:600; margin-bottom:10px; color:var(--ink);}
+  .footer-col h4{font-size:12px; font-weight:700; letter-spacing:0.5px; text-transform:uppercase; color:var(--purple); margin-bottom:14px;}
+  .footer-col a{display:block; font-size:14px; font-weight:600; margin-bottom:10px; color:var(--purple);}
   .footer-col a:hover{color:var(--purple);}
   .footer-bottom{
     border-top:1px solid var(--stone-line); padding-top:20px;
-    font-size:12px; color:var(--stone); font-weight:500;
+    font-size:12px; color:var(--purple); font-weight:600;
     display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;
   }
 
@@ -207,11 +214,14 @@
     .nav-wrap nav{display:none;}
     .nav-toggle{display:flex;}
     .mobile-nav{display:block;}
-    h1{font-size:36px;}
+    h1{font-size:32px;}
     .lines-grid, .news-grid{grid-template-columns:1fr;}
-    .hero{padding:56px 24px 48px;}
-    .hero-stats{gap:24px; flex-wrap:wrap;}
+    .hero-split{grid-template-columns:1fr;}
+    .hero-image{height:260px;}
+    .hero-content-split{padding:36px 24px;}
+    .hero-stats{gap:24px; flex-wrap:wrap; padding:0 24px;}
     .stat-divider{display:none;}
+    .stat-label{white-space:normal;}
     .cta-band{padding:36px;}
   }
 </style>
@@ -254,28 +264,33 @@
 </header>
 
 <div class="strata-bar"><div></div><div></div><div></div><div></div><div></div><div></div></div>
-<div class="hero">
-  <div class="hero-content">
+<div class="hero-split">
+  <div class="hero-image">
+    <img src="images/hero-tunnel.jpg" alt="GeoL field team inside an underground mine tunnel">
+  </div>
+  <div class="hero-content-split">
     <span class="eyebrow">Laboratory for Deep Mining Geoscience &amp; Engineering</span>
     <h1>Understanding rock <span>at depth</span></h1>
-    <p class="hero-desc">GeoL researches the geomechanical behavior of rock masses in deep underground mining, combining geotechnical characterization, numerical modeling, and applied technological innovation together with the mining industry.</p>
+    <p class="hero-desc">GeoL researches the geomechanical behavior of rock masses in deep underground mining, combining geotechnical characterization, numerical modeling, and applied technological innovation together with the mining industry</p>
     <div class="hero-actions">
       <a href="research.html" class="btn btn-primary">See our research</a>
       <a href="about.html" class="btn btn-ghost">Meet the team</a>
     </div>
-    <div class="hero-stats">
-      <div>
-        <div class="stat-num">+15</div>
-        <div class="stat-label">Active projects</div>
-      </div>
-      <div class="stat-divider"></div>
-      <div>
-        <div class="stat-num">+5</div>
-        <div class="stat-label">Allied institutions and companies</div>
-      </div>
+  </div>
+</div>
+
+<div class="hero-stats-band">
+  <div class="hero-stats">
+    <div>
+      <div class="stat-num">+15</div>
+      <div class="stat-label">Active projects</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div>
+      <div class="stat-num">+5</div>
+      <div class="stat-label">Allied institutions and companies</div>
     </div>
   </div>
-
 </div>
 
 <section>
@@ -362,7 +377,7 @@
   <div class="section-inner">
     <div class="cta-band">
       <div>
-        <img src="assets/geol-icon-blanco.svg" alt="GeoL" style="width:44px; height:auto; margin-bottom:18px;">
+        <img src="assets/geol-logo-full-blanco.svg" alt="GeoL" style="height:36px; width:auto; margin-bottom:18px;">
         <h2>Explore our technical research</h2>
         <p>Reports on geomechanical challenges at El Teniente, Chuquicamata Underground, and other applied studies.</p>
       </div>
@@ -375,14 +390,8 @@
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-brand">
-        <div class="brand">
-          <img src="assets/geol-icon.svg" alt="GeoL" style="width:38px; height:auto;">
-          <div>
-            <div class="brand-text">GeoL</div>
-            <div class="brand-sub">Deep Mining Geoscience &amp; Engineering</div>
-          </div>
-        </div>
-        <p>Laboratory for Deep Mining Geoscience &amp; Engineering. Applied research in deep underground mining geomechanics.</p>
+        <img src="assets/geol-logo-full.svg" alt="GeoL — Deep Mining Geoscience & Engineering" style="height:52px; width:auto; margin-bottom:14px;">
+        <p>Applied research in deep underground mining geomechanics.</p>
       </div>
       <div class="footer-cols">
         <div class="footer-col">
