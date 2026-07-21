@@ -135,10 +135,10 @@
     display:flex; align-items:center; justify-content:center; gap:40px;
     max-width:1180px; margin:0 auto;
   }
-  .hero-stats>div:not(.stat-divider){max-width:none; display:flex; align-items:baseline; gap:10px;}
-  .stat-divider{width:1px; height:36px; background:var(--stone-line);}
-  .stat-num{font-size:28px; font-weight:800; color:var(--purple); white-space:nowrap;}
-  .stat-label{font-size:13px; color:var(--stone); font-weight:600; letter-spacing:0.3px; text-align:left; white-space:nowrap;}
+  .hero-stats>div:not(.stat-divider){max-width:none; display:flex; flex-direction:row; align-items:center; gap:14px; text-align:left;}
+  .stat-divider{width:1px; height:52px; background:var(--stone-line);}
+  .stat-num{font-size:38px; font-weight:800; color:var(--purple); white-space:nowrap; line-height:1;}
+  .stat-label{font-size:15px; color:var(--stone); font-weight:600; letter-spacing:0.3px; text-align:left; line-height:1.35;}
 
   /* ===== SECTIONS ===== */
   section{padding:72px 32px;}
@@ -266,11 +266,11 @@
 <div class="strata-bar"><div></div><div></div><div></div><div></div><div></div><div></div></div>
 <div class="hero-split">
   <div class="hero-image">
-    <img src="images/hero-tunnel.jpg" alt="GeoL field team inside an underground mine tunnel">
+    <img src="images/49169950341_8bfa93c7a9_o.jpg" alt="GeoL field team inside an underground mine tunnel">
   </div>
   <div class="hero-content-split">
     <span class="eyebrow">Laboratory for Deep Mining Geoscience &amp; Engineering</span>
-    <h1>Understanding rock <span>at depth</span></h1>
+    <h1>Understanding rock<br><span>at depth</span></h1>
     <p class="hero-desc">GeoL researches the geomechanical behavior of rock masses in deep underground mining, combining geotechnical characterization, numerical modeling, and applied technological innovation together with the mining industry</p>
     <div class="hero-actions">
       <a href="research.html" class="btn btn-primary">See our research</a>
@@ -283,12 +283,12 @@
   <div class="hero-stats">
     <div>
       <div class="stat-num">+15</div>
-      <div class="stat-label">Active projects</div>
+      <div class="stat-label">Active<br>projects</div>
     </div>
     <div class="stat-divider"></div>
     <div>
       <div class="stat-num">+5</div>
-      <div class="stat-label">Allied institutions and companies</div>
+      <div class="stat-label">Allied institutions<br>and companies</div>
     </div>
   </div>
 </div>
