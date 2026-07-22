@@ -91,17 +91,22 @@
   .strata-bar div:nth-child(5){background:var(--blue);}
   .strata-bar div:nth-child(6){background:var(--purple);}
 
-  /* ===== PAGE HEADER (image + text split) ===== */
-  .hero-split{
-    display:grid; grid-template-columns:1fr 1.05fr;
-    min-height:380px;
+  /* ===== PAGE HEADER (full-bleed image, centered overlay text) ===== */
+  .about-header{
+    position:relative; min-height:420px; overflow:hidden;
+    display:flex; align-items:center; justify-content:center; text-align:center;
   }
-  .hero-image{overflow:hidden; background:var(--ink);}
-  .hero-image img{width:100%; height:100%; object-fit:cover; display:block;}
-  .hero-content-split{
-    display:flex; flex-direction:column; justify-content:center;
-    padding:48px 64px; background:var(--tint);
+  .about-header img{
+    position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:1;
   }
+  .about-header::after{
+    content:""; position:absolute; inset:0; z-index:2;
+    background:linear-gradient(180deg, rgba(18,10,38,0.55) 0%, rgba(44,1,130,0.75) 100%);
+  }
+  .about-header-inner{position:relative; z-index:3; max-width:680px; padding:0 32px;}
+  .about-header .eyebrow{color:#fff; opacity:0.85;}
+  .about-header .page-title{color:#fff;}
+  .about-header .page-desc{color:rgba(255,255,255,0.85);}
   .page-title{font-size:40px; font-weight:800; letter-spacing:-1px; margin-bottom:16px;}
   .page-desc{font-size:16px; color:var(--stone); font-weight:500; line-height:1.65;}
   .eyebrow{
@@ -125,21 +130,20 @@
   .desc-text{max-width:840px; font-size:16px; color:var(--ink); font-weight:500; line-height:1.8;}
   .desc-text + .desc-text{margin-top:18px;}
 
-  /* ===== FOUNDER / LFO CARD ===== */
+  /* ===== FOUNDER / LFO BANNER ===== */
   .leadership-eyebrow{font-size:18px; letter-spacing:0.5px; margin-bottom:0;}
-  .founder-card{
-    background:#fff; border:1px solid var(--stone-line); border-radius:16px;
-    padding:40px; display:flex; gap:36px; align-items:center;
+  .founder-split{
+    display:grid; grid-template-columns:1fr 1fr; min-height:400px;
   }
-  .founder-photo{
-    flex-shrink:0; width:240px; height:240px; border-radius:14px; overflow:hidden;
-    background:var(--tint);
+  .founder-text-col{
+    display:flex; flex-direction:column; justify-content:center;
+    padding:48px 64px; background:#fff;
   }
-  .founder-photo img{width:100%; height:100%; object-fit:cover; display:block;}
-  .founder-body{flex:1;}
+  .founder-photo-col{overflow:hidden;}
+  .founder-photo-col img{width:100%; height:100%; object-fit:cover; display:block;}
   .founder-role{font-size:16px; font-weight:800; letter-spacing:0.5px; text-transform:uppercase; color:var(--purple); margin-bottom:10px;}
-  .founder-name{font-size:24px; font-weight:800; margin-bottom:14px; letter-spacing:-0.3px;}
-  .founder-bio{font-size:14.5px; color:var(--stone); font-weight:500; line-height:1.75;}
+  .founder-name{font-size:34px; font-weight:800; margin-bottom:18px; letter-spacing:-0.5px;}
+  .founder-bio{font-size:15px; color:var(--stone); font-weight:500; line-height:1.8; max-width:480px;}
 
   /* ===== TEAM GRID ===== */
   .team-grid{
@@ -202,10 +206,11 @@
     .nav-toggle{display:flex;}
     .mobile-nav{display:block;}
     .page-title{font-size:30px;}
-    .hero-split{grid-template-columns:1fr;}
-    .hero-image{height:220px;}
-    .hero-content-split{padding:36px 24px;}
-    .founder-card{flex-direction:column; text-align:center; padding:28px;}
+    .about-header{min-height:320px;}
+    .founder-split{grid-template-columns:1fr;}
+    .founder-photo-col{height:280px; order:-1;}
+    .founder-text-col{padding:32px 24px; text-align:center;}
+    .founder-bio{max-width:none;}
     .founder-photo{width:160px; height:160px;}
     .team-grid{gap:10px;}
   }
@@ -252,11 +257,9 @@
 
 <div class="strata-bar"><div></div><div></div><div></div><div></div><div></div><div></div></div>
 
-<div class="hero-split">
-  <div class="hero-image">
-    <img src="images/geol_2025.jpg" alt="The GeoL team together">
-  </div>
-  <div class="hero-content-split">
+<div class="about-header">
+  <img src="images/geol_2025.jpg" alt="The GeoL team together">
+  <div class="about-header-inner">
     <span class="eyebrow">Who we are</span>
     <h1 class="page-title">Our Lab</h1>
     <p class="page-desc">GeoL brings together engineers and researchers working on the geomechanical challenges of deep underground mining — meet the people behind the research.</p>
@@ -274,20 +277,20 @@
   </div>
 </section>
 
-<section class="tint">
+<section class="tint" style="padding-bottom:0;">
   <div class="section-inner">
-    <div class="section-head">
+    <div class="section-head" style="margin-bottom:32px;">
       <div class="section-eyebrow leadership-eyebrow">Leadership</div>
     </div>
-    <div class="founder-card">
-      <div class="founder-photo">
-        <img src="team/LFO.jpg" alt="Luis Felipe Orellana">
-      </div>
-      <div class="founder-body">
-        <div class="founder-role">Founder</div>
-        <div class="founder-name">Luis Felipe Orellana</div>
-        <p class="founder-bio">[Placeholder bio — replace with Luis Felipe Orellana's real CV and biography: academic background, professional experience, and research focus.] Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      </div>
+  </div>
+  <div class="founder-split">
+    <div class="founder-text-col">
+      <div class="founder-role">Founder</div>
+      <div class="founder-name">Luis Felipe Orellana</div>
+      <p class="founder-bio">[Placeholder bio — replace with Luis Felipe Orellana's real CV and biography: academic background, professional experience, and research focus.] Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+    <div class="founder-photo-col">
+      <img src="team/LFO.jpg" alt="Luis Felipe Orellana">
     </div>
   </div>
 </section>
