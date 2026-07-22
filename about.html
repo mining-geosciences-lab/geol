@@ -93,11 +93,12 @@
 
   /* ===== PAGE HEADER (full-bleed image, centered overlay text) ===== */
   .about-header{
-    position:relative; min-height:420px; overflow:hidden;
+    position:relative; min-height:360px; overflow:hidden;
     display:flex; align-items:center; justify-content:center; text-align:center;
   }
   .about-header img{
-    position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:1;
+    position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+    object-position:center 15%; z-index:1;
   }
   .about-header::after{
     content:""; position:absolute; inset:0; z-index:2;
@@ -207,7 +208,7 @@
     .nav-toggle{display:flex;}
     .mobile-nav{display:block;}
     .page-title{font-size:30px;}
-    .about-header{min-height:320px;}
+    .about-header{min-height:280px;}
     .founder-split{grid-template-columns:1fr;}
     .founder-photo-col{height:280px; order:-1;}
     .founder-text-col{padding:32px 24px; text-align:center;}
