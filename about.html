@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Lab — GeoL | Laboratory for Deep Mining Geoscience &amp; Engineering</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --purple:#5903FA;
+    --purple-deep:#2C0182;
+    --blue:#014B96;
+    --blue-deep:#012F5E;
+    --ink:#120A26;
+    --paper:#FAF9FC;
+    --tint:#EDE8FC;
+    --tint-blue:#E6EDF5;
+    --stone:#8A8496;
+    --stone-line: rgba(18,10,38,0.08);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Montserrat', sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.6;
+  }
+  a{text-decoration:none;color:inherit;}
+
+  /* ===== NAV ===== */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:var(--purple);
+    border-bottom:1px solid var(--purple-deep);
+  }
+  .nav-wrap{
+    max-width:1180px; margin:0 auto; padding:16px 32px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .brand{display:flex; align-items:center; gap:12px;}
+  .brand-text{font-weight:700; font-size:17px; letter-spacing:-0.2px; color:#fff;}
+  .brand-sub{font-size:11px; color:rgba(255,255,255,0.7); font-weight:500; letter-spacing:0.3px;}
+  nav ul{list-style:none; display:flex; gap:20px;}
+  nav a{
+    font-size:13px; font-weight:700; color:#fff;
+    text-transform:uppercase; letter-spacing:0.5px;
+    position:relative; padding:6px 0;
+  }
+  nav a.active::after, nav a:hover::after{
+    content:""; position:absolute; left:0; bottom:0; height:2px; width:100%;
+    background:#fff;
+  }
+  nav a::after{
+    content:""; position:absolute; left:0; bottom:0; height:2px; width:0;
+    background:#fff; transition:width .25s ease;
+  }
+  .nav-toggle{
+    display:none; flex-direction:column; justify-content:center; gap:5px;
+    width:36px; height:36px; background:none; border:none; cursor:pointer; padding:0;
+  }
+  .nav-toggle span{
+    display:block; width:22px; height:2px; background:#fff; border-radius:2px;
+    transition:transform .2s ease, opacity .2s ease;
+  }
+  .nav-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .nav-toggle[aria-expanded="true"] span:nth-child(2){opacity:0;}
+  .nav-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+  .mobile-nav{
+    display:none; max-height:0; overflow:hidden;
+    background:var(--purple-deep); border-top:1px solid rgba(255,255,255,0.15);
+    transition:max-height .25s ease;
+  }
+  .mobile-nav.open{max-height:500px;}
+  .mobile-nav ul{list-style:none; padding:8px 32px 20px;}
+  .mobile-nav li a{
+    display:block; padding:12px 0; font-size:15px; font-weight:600; color:#fff;
+    border-bottom:1px solid rgba(255,255,255,0.15);
+    text-transform:uppercase; letter-spacing:0.5px;
+  }
+
+  .strata-bar{display:flex; width:100%; height:6px;}
+  .strata-bar div{flex:1;}
+  .strata-bar div:nth-child(1){background:var(--purple);}
+  .strata-bar div:nth-child(2){background:var(--purple-deep);}
+  .strata-bar div:nth-child(3){background:var(--blue);}
+  .strata-bar div:nth-child(4){background:var(--blue-deep);}
+  .strata-bar div:nth-child(5){background:var(--blue);}
+  .strata-bar div:nth-child(6){background:var(--purple);}
+
+  /* ===== PAGE HEADER (image + text split) ===== */
+  .hero-split{
+    display:grid; grid-template-columns:1fr 1.05fr;
+    min-height:380px;
+  }
+  .hero-image{overflow:hidden; background:var(--ink);}
+  .hero-image img{width:100%; height:100%; object-fit:cover; display:block;}
+  .hero-content-split{
+    display:flex; flex-direction:column; justify-content:center;
+    padding:48px 64px; background:var(--tint);
+  }
+  .page-title{font-size:40px; font-weight:800; letter-spacing:-1px; margin-bottom:16px;}
+  .page-desc{font-size:16px; color:var(--stone); font-weight:500; line-height:1.65;}
+  .eyebrow{
+    font-size:12px; font-weight:700; letter-spacing:1.6px; text-transform:uppercase;
+    color:var(--purple); margin-bottom:16px; display:block;
+  }
+
+  /* ===== SECTIONS ===== */
+  section{padding:72px 32px;}
+  .section-inner{max-width:1180px; margin:0 auto;}
+  .section-head{max-width:680px; margin-bottom:44px;}
+  .section-eyebrow{
+    font-size:12px; font-weight:700; letter-spacing:1.6px; text-transform:uppercase;
+    color:var(--purple); margin-bottom:12px;
+  }
+  .section-title{font-size:32px; font-weight:800; letter-spacing:-0.5px; margin-bottom:12px;}
+  .section-desc{color:var(--stone); font-size:15px; font-weight:500;}
+  .tint{background:var(--tint);}
+
+  /* ===== DESCRIPTION ===== */
+  .desc-text{max-width:840px; font-size:16px; color:var(--ink); font-weight:500; line-height:1.8;}
+  .desc-text + .desc-text{margin-top:18px;}
+
+  /* ===== FOUNDER / LFO CARD ===== */
+  .founder-card{
+    background:#fff; border:1px solid var(--stone-line); border-radius:16px;
+    padding:40px; display:flex; gap:36px; align-items:center;
+  }
+  .founder-photo{
+    flex-shrink:0; width:180px; height:180px; border-radius:14px; overflow:hidden;
+    background:var(--tint);
+  }
+  .founder-photo img{width:100%; height:100%; object-fit:cover; display:block;}
+  .founder-body{flex:1;}
+  .founder-role{font-size:12px; font-weight:700; letter-spacing:0.5px; text-transform:uppercase; color:var(--purple); margin-bottom:8px;}
+  .founder-name{font-size:24px; font-weight:800; margin-bottom:14px; letter-spacing:-0.3px;}
+  .founder-bio{font-size:14.5px; color:var(--stone); font-weight:500; line-height:1.75;}
+
+  /* ===== TEAM GRID ===== */
+  .team-grid{
+    display:grid; grid-template-columns:repeat(6, 1fr); gap:14px;
+  }
+  .team-card{
+    background:#fff; border:1px solid var(--stone-line); border-radius:12px; overflow:hidden;
+    cursor:pointer; transition:border-color .2s ease;
+  }
+  .team-card:hover{border-color:var(--purple);}
+  .team-card-head{
+    display:flex; flex-direction:column; align-items:center; text-align:center;
+    padding:18px 12px 14px;
+  }
+  .team-photo{
+    width:64px; height:64px; border-radius:50%; overflow:hidden;
+    background:var(--tint); margin-bottom:10px; flex-shrink:0;
+  }
+  .team-photo img{width:100%; height:100%; object-fit:cover; display:block;}
+  .team-photo.placeholder{
+    display:flex; align-items:center; justify-content:center;
+    color:var(--purple); font-size:16px; font-weight:800;
+  }
+  .team-name{font-size:13.5px; font-weight:700; margin-bottom:3px; line-height:1.3;}
+  .team-role-short{font-size:11px; color:var(--stone); font-weight:600; line-height:1.4;}
+  .team-chevron{
+    font-size:10px; color:var(--purple); margin-top:8px; font-weight:700;
+    transition:transform .2s ease;
+  }
+  .team-card.open .team-chevron{transform:rotate(180deg);}
+  .team-bio{
+    max-height:0; overflow:hidden; transition:max-height .3s ease;
+    border-top:1px solid var(--stone-line);
+  }
+  .team-card.open .team-bio{max-height:260px;}
+  .team-bio-inner{padding:14px 16px 18px; font-size:12px; color:var(--stone); font-weight:500; line-height:1.6; text-align:left;}
+  .team-social{display:inline-block; margin-top:8px; font-size:11.5px; font-weight:700; color:var(--purple);}
+
+  /* ===== EMPTY STATE ===== */
+  .empty-state{
+    text-align:center; padding:48px 24px; color:var(--stone); font-weight:600; font-size:14px;
+    background:#fff; border:1px dashed var(--stone-line); border-radius:12px;
+  }
+
+  footer{border-top:1px solid var(--stone-line); padding:48px 32px 28px;}
+  .footer-inner{max-width:1180px; margin:0 auto;}
+  .footer-top{display:flex; justify-content:space-between; gap:40px; flex-wrap:wrap; margin-bottom:32px;}
+  .footer-brand p{font-size:13px; color:var(--purple); max-width:280px; margin-top:10px; font-weight:600;}
+  .footer-cols{display:flex; gap:56px; flex-wrap:wrap;}
+  .footer-col h4{font-size:12px; font-weight:700; letter-spacing:0.5px; text-transform:uppercase; color:var(--purple); margin-bottom:14px;}
+  .footer-col a{display:block; font-size:14px; font-weight:600; margin-bottom:10px; color:var(--purple);}
+  .footer-bottom{
+    border-top:1px solid var(--stone-line); padding-top:20px;
+    font-size:12px; color:var(--purple); font-weight:600;
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;
+  }
+
+  @media (max-width:860px){
+    .nav-wrap nav{display:none;}
+    .nav-toggle{display:flex;}
+    .mobile-nav{display:block;}
+    .page-title{font-size:30px;}
+    .hero-split{grid-template-columns:1fr;}
+    .hero-image{height:220px;}
+    .hero-content-split{padding:36px 24px;}
+    .founder-card{flex-direction:column; text-align:center; padding:28px;}
+    .team-grid{grid-template-columns:repeat(3, 1fr);}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-wrap">
+    <a href="index.html" class="brand">
+      <img src="assets/geol-icon-blanco.svg" alt="GeoL" style="width:38px; height:auto;">
+      <div>
+        <div class="brand-text">GeoL</div>
+        <div class="brand-sub">Deep Mining Geoscience &amp; Engineering</div>
+      </div>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">Our Lab</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="news.html">Blog</a></li>
+        <li><a href="contact.html">Get Involved</a></li>
+      </ul>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">Our Lab</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="courses.html">Courses</a></li>
+      <li><a href="news.html">Blog</a></li>
+      <li><a href="contact.html">Get Involved</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="strata-bar"><div></div><div></div><div></div><div></div><div></div><div></div></div>
+
+<div class="hero-split">
+  <div class="hero-image">
+    <img src="images/geol_2025.jpg" alt="The GeoL team together">
+  </div>
+  <div class="hero-content-split">
+    <span class="eyebrow">Who we are</span>
+    <h1 class="page-title">Our Lab</h1>
+    <p class="page-desc">GeoL brings together engineers and researchers working on the geomechanical challenges of deep underground mining — meet the people behind the research.</p>
+  </div>
+</div>
+
+<section>
+  <div class="section-inner">
+    <div class="section-head">
+      <div class="section-eyebrow">Description</div>
+      <div class="section-title">About GeoL</div>
+    </div>
+    <p class="desc-text">GeoL — Laboratory for Deep Mining Geoscience &amp; Engineering — is a research group focused on the geomechanical and geotechnical challenges of deep underground mining. Our work combines rock mass characterization, numerical modeling, and applied technological innovation, developed alongside academic institutions and mining industry partners.</p>
+    <p class="desc-text">[Placeholder — replace with the lab's full description: mission, history, and what makes GeoL's approach distinctive.]</p>
+  </div>
+</section>
+
+<section class="tint">
+  <div class="section-inner">
+    <div class="section-head">
+      <div class="section-eyebrow">Leadership</div>
+      <div class="section-title">CV &amp; Bio</div>
+    </div>
+    <div class="founder-card">
+      <div class="founder-photo">
+        <img src="images/team/LFO.jpg" alt="Luis Felipe Orellana">
+      </div>
+      <div class="founder-body">
+        <div class="founder-role">Founder</div>
+        <div class="founder-name">Luis Felipe Orellana</div>
+        <p class="founder-bio">[Placeholder bio — replace with Luis Felipe Orellana's real CV and biography: academic background, professional experience, and research focus.] Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-inner">
+    <div class="section-head">
+      <div class="section-eyebrow">The people</div>
+      <div class="section-title">Current Team</div>
+      <p class="section-desc">Engineers and researchers currently working at GeoL.</p>
+    </div>
+<div class="team-grid" id="teamGrid">
+
+      <div class="team-card">
+        <div class="team-card-head">
+          <div class="team-photo"><img src="images/team/Belén.jpg" alt="Belén"></div>
+          <div class="team-name">Belén</div>
+          <div class="team-role-short">Ingeniero</div>
+          <div class="team-chevron">▾</div>
+        </div>
+        <div class="team-bio"><div class="team-bio-inner">[Placeholder — short summary of Belén's area of work.]</div></div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-head">
+          <div class="team-photo"><img src="images/team/Bruno.jpg" alt="Bruno"></div>
+          <div class="team-name">Bruno</div>
+          <div class="team-role-short">Ingeniero</div>
+          <div class="team-chevron">▾</div>
+        </div>
+        <div class="team-bio"><div class="team-bio-inner">[Placeholder — short summary of Bruno's area of work.]</div></div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-head">
+          <div class="team-photo"><img src="images/team/Camilo.jpg" alt="Camilo"></div>
+          <div class="team-name">Camilo</div>
+          <div class="team-role-short">Ingeniero</div>
+          <div class="team-chevron">▾</div>
+        </div>
+        <div class="team-bio"><div class="team-bio-inner">[Placeholder — short summary of Camilo's area of work.]</div></div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-head">
+          <div class="team-photo"><img src="images/team/Daniel.jpg" alt="Daniel"></div>
+          <div class="team-name">Daniel</div>
+          <div class="team-role-short">Ingeniero</div>
+          <div class="team-chevron">▾</div>
+        </div>
+        <div class="team-bio"><div class="team-bio-inner">[Placeholder — short summary of Daniel's area of work.]</div></div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-head">
+          <div class="team-photo"><img src="images/team/Diego.jpg" alt="Diego"></div>
+          <div class="team-name">Diego</div>
+          <div class="team-role-short">Ingeniero</div>
+          <div class="team-chevron">▾</div>
+        </div>
+        <div class="team-bio"><div class="team-bio-inner">[Placeholder — short summary of Diego's area of work.]</div></div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-head">
+          <div class="team-photo"><img src="images/team/Fernanda.jpeg" alt="Fernanda"></div>
+          <div class="team-name">Fernanda</div>
+          <div class="team-role-short">Ingeniero</div>
+          <div class="team-chevron">▾</div>
+        </div>
+        <div class="team-bio"><div class="team-bio-inner">[Placeholder — short summary of Fernanda's area of work.]</div></div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-head">
+          <div class="team-photo"><img src="images/team/Fernando.jpg" alt="Fernando"></div>
+          <div class="team-name">Fernando</div>
+          <div class="team-role-short">Ingeniero</div>
+          <div class="team-chevron">▾</div>
+        </div>
+        <div class="team-bio"><div class="team-bio-inner">[Placeholder — short summary of Fernando's area of work.]</div></div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-head">
+          <div class="team-photo"><img src="images/team/Francisca.jpeg" alt="Francisca"></div>
+          <div class="team-name">Francisca</div>
+          <div class="team-role-short">Ingeniero</div>
+          <div class="team-chevron">▾</div>
+        </div>
+        <div class="team-bio"><div class="team-bio-inner">[Placeholder — short summary of Francisca's area of work.]</div></div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-head">
+          <div class="team-photo"><img src="images/team/Guillermo.png" alt="Guillermo"></div>
+          <div class="team-name">Guillermo</div>
+          <div class="team-role-short">Ingeniero</div>
+          <div class="team-chevron">▾</div>
+        </div>
+        <div class="team-bio"><div class="team-bio-inner">[Placeholder — short summary of Guillermo's area of work.]</div></div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-head">
+          <div class="team-photo"><img src="images/team/Javiera.jpeg" alt="Javiera"></div>
+          <div class="team-name">Javiera</div>
+          <div class="team-role-short">Ingeniero</div>
+          <div class="team-chevron">▾</div>
+        </div>
+        <div class="team-bio"><div class="team-bio-inner">[Placeholder — short summary of Javiera's area of work.]</div></div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-head">
+          <div class="team-photo"><img src="images/team/Jose-Ignacio.jpeg" alt="José Ignacio"></div>
+          <div class="team-name">José Ignacio</div>
+          <div class="team-role-short">Ingeniero</div>
+          <div class="team-chevron">▾</div>
+        </div>
+        <div class="team-bio"><div class="team-bio-inner">[Placeholder — short summary of José Ignacio's area of work.]</div></div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-head">
+          <div class="team-photo"><img src="images/team/Lucy.jpeg" alt="Lucy"></div>
+          <div class="team-name">Lucy</div>
+          <div class="team-role-short">Ingeniero</div>
+          <div class="team-chevron">▾</div>
+        </div>
+        <div class="team-bio"><div class="team-bio-inner">[Placeholder — short summary of Lucy's area of work.]</div></div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-head">
+          <div class="team-photo"><img src="images/team/perfil_Paulo_Campoverde.jpg" alt="Paulo Campoverde"></div>
+          <div class="team-name">Paulo Campoverde</div>
+          <div class="team-role-short">Ingeniero</div>
+          <div class="team-chevron">▾</div>
+        </div>
+        <div class="team-bio"><div class="team-bio-inner">[Placeholder — short summary of Paulo's area of work.]</div></div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-head">
+          <div class="team-photo"><img src="images/team/Roberto.jpeg" alt="Roberto"></div>
+          <div class="team-name">Roberto</div>
+          <div class="team-role-short">Ingeniero</div>
+          <div class="team-chevron">▾</div>
+        </div>
+        <div class="team-bio"><div class="team-bio-inner">[Placeholder — short summary of Roberto's area of work.]</div></div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-head">
+          <div class="team-photo"><img src="images/team/Matias_Clunes.jpg" alt="Matías Clunes"></div>
+          <div class="team-name">Matías Clunes</div>
+          <div class="team-role-short">Postdoctoral Researcher</div>
+          <div class="team-chevron">▾</div>
+        </div>
+        <div class="team-bio"><div class="team-bio-inner">Geologist (Universidad de Concepción) and PhD in Geosciences (Pontificia Universidad Católica de Chile). Returns to Chile after two years of research at the University of Portsmouth (UK). Research focus: hydraulic fracturing in natural and anthropogenic systems, and experimental rock deformation.<br><a href="https://www.instagram.com/maticlu/" target="_blank" class="team-social">@maticlu ↗</a></div></div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-head">
+          <div class="team-photo placeholder">CV</div>
+          <div class="team-name">Carla Valenzuela</div>
+          <div class="team-role-short">Postdoctoral Researcher</div>
+          <div class="team-chevron">▾</div>
+        </div>
+        <div class="team-bio"><div class="team-bio-inner">PhD in Geophysics, specializing in Seismology (University of Potsdam &amp; GFZ German Research Centre for Geosciences), MSc in Geophysics (Universidad de Chile). Joins GeoL to strengthen research in deep mining geomechanics.</div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="tint">
+  <div class="section-inner">
+    <div class="section-head">
+      <div class="section-eyebrow">Alumni</div>
+      <div class="section-title">Past Members</div>
+      <p class="section-desc">Former members of the GeoL team.</p>
+    </div>
+    <div class="empty-state">No past members yet — this section will grow as the lab does.</div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="assets/geol-logo-full.svg" alt="GeoL — Deep Mining Geoscience & Engineering" style="height:52px; width:auto; margin-bottom:14px;">
+        <p>Applied research in deep underground mining geomechanics.</p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="index.html">Home</a>
+          <a href="research.html">Research</a>
+          <a href="projects.html">Projects</a>
+          <a href="courses.html">Courses</a>
+          <a href="news.html">Blog</a>
+        </div>
+        <div class="footer-col">
+          <h4>Lab</h4>
+          <a href="about.html">Our Lab</a>
+          <a href="contact.html">Get Involved</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 GeoL.</span>
+      <span>Science outreach site</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const navToggle = document.getElementById('navToggle');
+  const mobileNav = document.getElementById('mobileNav');
+  navToggle.addEventListener('click', () => {
+    const isOpen = mobileNav.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    navToggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+  });
+  mobileNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileNav.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  document.querySelectorAll('#teamGrid .team-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const wasOpen = card.classList.contains('open');
+      document.querySelectorAll('#teamGrid .team-card.open').forEach(c => c.classList.remove('open'));
+      if (!wasOpen) card.classList.add('open');
+    });
+  });
+</script>
+
+</body>
+</html>
