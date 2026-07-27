@@ -244,7 +244,7 @@
         <li><a href="research.html">Research</a></li>
         <li><a href="projects.html">Projects</a></li>
         <li><a href="courses.html">Courses</a></li>
-        <li><a href="news.html">Blog</a></li>
+        <li><a href="news.html">News</a></li>
         <li><a href="contact.html">Get Involved</a></li>
       </ul>
     </nav>
@@ -259,7 +259,7 @@
       <li><a href="research.html">Research</a></li>
       <li><a href="projects.html">Projects</a></li>
       <li><a href="courses.html">Courses</a></li>
-      <li><a href="news.html">Blog</a></li>
+      <li><a href="news.html">News</a></li>
       <li><a href="contact.html">Get Involved</a></li>
     </ul>
   </nav>
@@ -329,32 +329,7 @@
       <div class="section-title">Latest news</div>
       <p class="section-desc">Lab updates, project progress, and industry participation.</p>
     </div>
-    <div class="news-grid">
-      <div class="news-card">
-        <div class="news-thumb">GeoL</div>
-        <div class="news-body">
-          <div class="news-date">Coming soon</div>
-          <h3>Featured news title</h3>
-          <p>Short summary of the news that will be published in this section.</p>
-        </div>
-      </div>
-      <div class="news-card">
-        <div class="news-thumb">GeoL</div>
-        <div class="news-body">
-          <div class="news-date">Coming soon</div>
-          <h3>Second sample news item</h3>
-          <p>Short summary of the news that will be published in this section.</p>
-        </div>
-      </div>
-      <div class="news-card">
-        <div class="news-thumb">GeoL</div>
-        <div class="news-body">
-          <div class="news-date">Coming soon</div>
-          <h3>Third sample news item</h3>
-          <p>Short summary of the news that will be published in this section.</p>
-        </div>
-      </div>
-    </div>
+    <div class="news-grid" id="homeNewsGrid"></div>
   </div>
 </section>
 
@@ -412,7 +387,7 @@
           <a href="research.html">Research</a>
           <a href="projects.html">Projects</a>
           <a href="courses.html">Courses</a>
-          <a href="news.html">Blog</a>
+          <a href="news.html">News</a>
         </div>
         <div class="footer-col">
           <h4>Lab</h4>
@@ -442,6 +417,26 @@
       navToggle.setAttribute('aria-expanded', 'false');
     });
   });
+</script>
+
+<script src="news-data.js"></script>
+<script>
+  function formatHomeDate(iso){
+    const d = new Date(iso + "T00:00:00");
+    return d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+  }
+
+  const recent = [...NEWS_POSTS].sort((a,b) => new Date(b.date) - new Date(a.date)).slice(0, 3);
+  document.getElementById('homeNewsGrid').innerHTML = recent.map(p => `
+    <a href="news.html#${p.id}" class="news-card" style="display:block;">
+      <div class="news-thumb">GeoL</div>
+      <div class="news-body">
+        <div class="news-date">${formatHomeDate(p.date)}</div>
+        <h3>${p.title}</h3>
+        <p>${p.excerpt}</p>
+      </div>
+    </a>
+  `).join('');
 </script>
 </body>
 </html>
