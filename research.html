@@ -307,18 +307,18 @@
     <div class="lines-grid">
       <div class="line-card">
         <span class="line-num">01</span>
-        <h3>Geotechnical characterization</h3>
-        <p>Geotechnical units, structural geology, rock mass quality, and in-situ stress fields in underground operations such as El Teniente and Chuquicamata.</p>
+        <h3>Advanced Geotechnical Characterization</h3>
+        <p>Geotechnical units, structural geology, rock mass quality, and in-situ stress fields in deep underground operations such as El Teniente and Chuquicamata.</p>
       </div>
       <div class="line-card">
         <span class="line-num">02</span>
-        <h3>Deep underground mining</h3>
+        <h3>Deep Mining Geoscience</h3>
         <p>Cavity interaction, hydraulic fracturing for seismicity management, caving behavior, fragmentation, and stability challenges as mines grow deeper.</p>
       </div>
       <div class="line-card">
         <span class="line-num">03</span>
-        <h3>Innovation and electrification</h3>
-        <p>Unit-process automation, advanced seismic analytics, and technology applied to mine design, electrification, and production continuity.</p>
+        <h3>Mining Electrification and Technology</h3>
+        <p>Unit-process automation, advanced seismic analytics, and technology applied to mine electrification and production continuity.</p>
       </div>
     </div>
   </div>
@@ -327,9 +327,9 @@
 <section class="tint">
   <div class="section-inner">
     <div class="section-head">
-      <div class="section-eyebrow">Technical reports</div>
+      <div class="section-eyebrow">Peer-reviewed work</div>
       <div class="section-title">Publications</div>
-      <p class="section-desc">Applied studies on deep underground mining challenges, developed together with Codelco's mine engineering teams.</p>
+      <p class="section-desc">Published academic work by the GeoL team.</p>
     </div>
 
     <div class="pub-filters">
@@ -342,8 +342,8 @@
         <select id="pubLine"><option value="">All lines</option></select>
       </div>
       <div class="filter-field">
-        <label for="pubPublisher">Publisher</label>
-        <select id="pubPublisher"><option value="">All publishers</option></select>
+        <label for="pubPublisher">Venue</label>
+        <select id="pubPublisher"><option value="">All venues</option></select>
       </div>
       <div class="filter-field">
         <label for="pubYear">Year</label>
@@ -420,34 +420,206 @@
 <script>
   /* =========================================================
      PUBLICATIONS DATA
+     Real, published academic publications only (no technical reports).
      To add a new publication, copy one block below and edit it.
-     - date: format "YYYY-MM-DD" (used for sorting and year filter)
+     - authors: full author list as it should be cited
+     - venue: journal / conference / book where it was published
+     - date: format "YYYY-MM-DD" (only year is shown, but full date helps sorting)
      - line: must match one of the 3 research lines exactly, so the
        filter dropdown groups it correctly
      - tags: short keywords, shown as pills and searchable
-     - file: path to the PDF (or other file) relative to this page
+     - link: URL to the publication (DOI, journal page, etc.) — leave "" if none yet
   ========================================================= */
   const PUBLICATIONS = [
     {
-      title: "Underground Mining Challenges — El Teniente Division",
-      publisher: "Codelco",
-      author: "Felipe Hidalgo Pérez",
-      date: "2024-07-25",
-      line: "Deep underground mining",
-      tags: ["Geomechanics", "Block caving", "Seismicity"],
-      file: "publications/El_Teniente_Deep_Mining_Challenges.pdf",
-      description: "An overview of the geomechanical and geotechnical challenges El Teniente faces as its block-caving operation advances to deeper levels. Covers hydraulic fracturing to manage induced seismicity, 3D interaction between extraction cavities, fragmentation improvement, broken-material recovery, unit-process automation, support-system maintenance, and advanced seismic analytics for early-warning pattern detection."
+      title: "The strength of tradition: physical and mechanical properties of Pelequén's \"peach blossom\" pink tuff, Chile",
+      authors: "Robbiano, F., Becerril, L., Jullian, D., Orellana, L.F.",
+      venue: "GeoHeritage",
+      date: "2026-01-01",
+      line: "Advanced Geotechnical Characterization",
+      tags: ["Rock properties", "Petrophysics"],
+      link: ""
     },
     {
-      title: "Underground Mining Challenges — Chuquicamata Subterránea",
-      publisher: "Codelco",
-      author: "Juan Cristóbal Videla W.",
-      date: "2024-07-25",
-      line: "Geotechnical characterization",
-      tags: ["Geotechnics", "Mine design", "Caving"],
-      file: "publications/Chuquicamata_Underground_Challenges.pdf",
-      description: "Reviews the geotechnical characterization and stress-field distribution across the Chuquicamata Subterránea deposit, and the challenges of its macro-block caving variant: stability, fragmentation, and cavability; low-impact drilling-and-blasting mine design; and the operational and mine-preparation demands of ramping up toward a sustained 140 ktpd production rate."
-    }
+      title: "Control of pore geometry on the strength, elastic anisotropy and acoustic emission output of vesicular lavas from Nevados de Chillán, Chile",
+      authors: "Merchán, F., Browning, J., Arancibia, G., Healy, D., Mura, V., Pineda, C., Heap, M.J., Baud, P., Romero, J.E., Clunes, M., Orellana, L.F., Morata, D.",
+      venue: "Bulletin of Volcanology",
+      date: "2026-01-01",
+      line: "Advanced Geotechnical Characterization",
+      tags: ["Rock mechanics", "Petrophysics"],
+      link: "https://doi.org/10.1007/s00445-026-01968-8"
+    },
+    {
+      title: "Evolution of stress induced damage and anisotropy prior to rock failure in the main lithologies of El Teniente mine, Central Chile",
+      authors: "Santander, P., Browning, J., Orellana, L.F., Cortez, J., Roquer, T., Clunes, M., et al.",
+      venue: "Rock Mechanics and Rock Engineering",
+      date: "2026-01-01",
+      line: "Deep Mining Geoscience",
+      tags: ["El Teniente", "Rock damage"],
+      link: "https://doi.org/10.1007/s00603-026-05326-0"
+    },
+    {
+      title: "Can Deep-Sea Mining Contribute to the Supply of Critical Minerals Without Compromising Sustainability?",
+      authors: "Espínola, F., Orellana, L.F., Castillo, E.",
+      venue: "Minerals",
+      date: "2026-01-01",
+      line: "Mining Electrification and Technology",
+      tags: ["Sustainability", "Critical minerals"],
+      link: "https://doi.org/10.3390/min16010098"
+    },
+    {
+      title: "Mining in the Lithium Triangle: A Multifaceted Approach towards resource development in the face of Climate, Governance, and Socio-Environmental Challenges",
+      authors: "Reyes, C., Castillo, E., Orellana, L.F., del Real, I.",
+      venue: "The Extractive Industries and Society",
+      date: "2025-01-01",
+      line: "Mining Electrification and Technology",
+      tags: ["Lithium", "Climate"],
+      link: "https://doi.org/10.1016/j.exis.2025.101761"
+    },
+    {
+      title: "Bibliometric and PESTEL Analysis of Deep-Sea Mining: Trends and Challenges for Sustainable Development",
+      authors: "Espínola, F., Castillo, E., Orellana, L.F.",
+      venue: "Mining",
+      date: "2025-01-01",
+      line: "Mining Electrification and Technology",
+      tags: ["Sustainability", "Deep-sea mining"],
+      link: "https://doi.org/10.3390/mining5020036"
+    },
+    {
+      title: "Resources, and climate paradox: Quantifying climate change disruption",
+      authors: "Fernández, P., Orellana, L.F., Castillo, E.",
+      venue: "International Journal of Mining, Reclamation and Environment",
+      date: "2025-01-01",
+      line: "Mining Electrification and Technology",
+      tags: ["Climate", "Mining economics"],
+      link: "https://doi.org/10.1080/17480930.2024.2424710"
+    },
+    {
+      title: "Modeling and scenario analysis of social management for adaptation to climate change: The case of large mining in Chile",
+      authors: "Jiliberto-Herrera, R., Ramos-Jiliberto, R., Castillo, E., Allendes, A., Orellana, L.F., Billi, M., Ramirez, M.",
+      venue: "Environmental Development",
+      date: "2024-01-01",
+      line: "Mining Electrification and Technology",
+      tags: ["Climate", "Social management"],
+      link: "https://doi.org/10.1016/j.envdev.2024.101089"
+    },
+    {
+      title: "Dynamic mechanical properties of veined rocks under biaxial confinement",
+      authors: "Robbiano, F., Liu, K., Zhang, Q., Orellana, L.F.",
+      venue: "International Journal of Rock Mechanics and Mining Sciences",
+      date: "2023-01-01",
+      line: "Advanced Geotechnical Characterization",
+      tags: ["Rock mechanics", "Veined rocks"],
+      link: "https://doi.org/10.1016/j.ijrmms.2023.105538"
+    },
+    {
+      title: "Assessing Climate Change Risk in the Mining Industry: A Case Study in the Copper Industry in the Antofagasta Region, Chile",
+      authors: "Del Rio, J.I., Fernández, P., Castillo, E., Orellana, L.F.",
+      venue: "Commodities",
+      date: "2023-01-01",
+      line: "Mining Electrification and Technology",
+      tags: ["Climate risk", "Copper"],
+      link: "https://doi.org/10.3390/commodities2030015"
+    },
+    {
+      title: "Physical characterization of fault rocks within the Opalinus Clay formation",
+      authors: "Orellana, L.F., Nussbaum, C., Grafulha, L., et al.",
+      venue: "Scientific Reports",
+      date: "2022-01-01",
+      line: "Advanced Geotechnical Characterization",
+      tags: ["Fault rocks", "Petrophysics"],
+      link: "https://doi.org/10.1038/s41598-022-08236-7"
+    },
+    {
+      title: "Dynamic compression test on veined rocks at high strain rates",
+      authors: "Robbiano, F., Liu, K., Zhang, Q., Orellana, L.F.",
+      venue: "International Journal of Rock Mechanics and Mining Sciences",
+      date: "2022-01-01",
+      line: "Advanced Geotechnical Characterization",
+      tags: ["Rock mechanics", "Veined rocks"],
+      link: "https://doi.org/10.1016/j.ijrmms.2022.105085"
+    },
+    {
+      title: "Variations in elastic and electrical properties of crustal rocks with varying degree of microfracturation",
+      authors: "Pimienta, L., Orellana, L.F., Violay, M.",
+      venue: "Journal of Geophysical Research: Solid Earth",
+      date: "2019-01-01",
+      line: "Advanced Geotechnical Characterization",
+      tags: ["Rock physics", "Microfracturation"],
+      link: "https://doi.org/10.1029/2019JB017339"
+    },
+    {
+      title: "Contrasting mechanical and hydraulic properties of wet and dry fault zones in a proposed shale-hosted nuclear waste repository",
+      authors: "Orellana, L.F., Giorgetti, C., Violay, M.",
+      venue: "Geophysical Research Letters",
+      date: "2019-01-01",
+      line: "Advanced Geotechnical Characterization",
+      tags: ["Fault mechanics", "Hydraulic properties"],
+      link: "https://doi.org/10.1029/2018gl080384"
+    },
+    {
+      title: "Do scaly clays control seismicity on faulted shale rocks?",
+      authors: "Orellana, L.F., Scuderi, M.M., Collettini, C., Violay, M.",
+      venue: "Earth and Planetary Science Letters",
+      date: "2018-01-01",
+      line: "Deep Mining Geoscience",
+      tags: ["Seismicity", "Fault mechanics"],
+      link: "https://doi.org/10.1016/j.epsl.2018.01.027"
+    },
+    {
+      title: "Frictional Properties of Opalinus Clay: Implications for Nuclear Waste Storage",
+      authors: "Orellana, L.F., Scuderi, M.M., Collettini, C., Violay, M.",
+      venue: "Journal of Geophysical Research: Solid Earth",
+      date: "2018-01-01",
+      line: "Advanced Geotechnical Characterization",
+      tags: ["Friction", "Fault mechanics"],
+      link: "https://doi.org/10.1002/2017JB014931"
+    },
+    {
+      title: "Productivity of a Continuous Mining System for Block Caving Mines",
+      authors: "Orellana, L.F., Castro, R., Hekmat, A., Arancibia, E.",
+      venue: "Rock Mechanics and Rock Engineering",
+      date: "2017-01-01",
+      line: "Deep Mining Geoscience",
+      tags: ["Block caving", "Mine productivity"],
+      link: "https://doi.org/10.1007/s00603-016-1107-9"
+    },
+    {
+      title: "Predicting the axial capacity of piles in sand",
+      authors: "Rotta Loria, A.F., Orellana, L.F., Minardi, A., Fürbringer, J.M., Laloui, L.",
+      venue: "Computers and Geotechnics",
+      date: "2015-01-01",
+      line: "Advanced Geotechnical Characterization",
+      tags: ["Geotechnics", "Foundations"],
+      link: "https://doi.org/10.1016/j.compgeo.2015.06.013"
+    },
+    {
+      title: "Big Data en Operaciones Mineras",
+      authors: "Orellana, L.F., Ehrenfeld, A., Morales, N.",
+      venue: "Big Data en Minería (book chapter)",
+      date: "2020-01-01",
+      line: "Mining Electrification and Technology",
+      tags: ["Big data", "Mining operations"],
+      link: ""
+    },
+    {
+      title: "¿El royalty acabará con la inversión minera? Una respuesta desde los ciclos de precio",
+      authors: "Orellana, L.F.",
+      venue: "CIPER Académico",
+      date: "2021-05-12",
+      line: "Mining Electrification and Technology",
+      tags: ["Mining policy", "Economics"],
+      link: "https://www.ciperchile.cl/2021/05/12/el-royalty-acabara-con-la-inversion-minera-una-respuesta-desde-los-ciclos-de-precio/"
+    },
+    {
+      title: "¿El royalty minero acabará con la inversión? (II Parte)",
+      authors: "Orellana, L.F.",
+      venue: "CIPER Académico",
+      date: "2021-05-22",
+      line: "Mining Electrification and Technology",
+      tags: ["Mining policy", "Economics"],
+      link: "https://www.ciperchile.cl/2021/05/22/el-royalty-minero-acabara-con-la-inversion-ii/"
+    },
   ];
 
   const PER_PAGE = 4;
@@ -464,39 +636,39 @@
 
   function populateFilterOptions(){
     const lines = [...new Set(PUBLICATIONS.map(p => p.line))].sort();
-    const publishers = [...new Set(PUBLICATIONS.map(p => p.publisher))].sort();
+    const venues = [...new Set(PUBLICATIONS.map(p => p.venue))].sort();
     const years = [...new Set(PUBLICATIONS.map(p => p.date.slice(0,4)))].sort((a,b) => b - a);
 
     lines.forEach(l => lineSelect.insertAdjacentHTML('beforeend', `<option value="${l}">${l}</option>`));
-    publishers.forEach(p => publisherSelect.insertAdjacentHTML('beforeend', `<option value="${p}">${p}</option>`));
+    venues.forEach(v => publisherSelect.insertAdjacentHTML('beforeend', `<option value="${v}">${v}</option>`));
     years.forEach(y => yearSelect.insertAdjacentHTML('beforeend', `<option value="${y}">${y}</option>`));
   }
 
   function getFiltered(){
     const q = searchInput.value.trim().toLowerCase();
     const line = lineSelect.value;
-    const publisher = publisherSelect.value;
+    const venue = publisherSelect.value;
     const year = yearSelect.value;
 
     return PUBLICATIONS
       .filter(p => {
         const matchesQuery = !q || (
           p.title.toLowerCase().includes(q) ||
-          p.description.toLowerCase().includes(q) ||
-          p.tags.some(t => t.toLowerCase().includes(q)) ||
-          p.author.toLowerCase().includes(q)
+          p.authors.toLowerCase().includes(q) ||
+          p.venue.toLowerCase().includes(q) ||
+          (p.tags || []).some(t => t.toLowerCase().includes(q))
         );
         const matchesLine = !line || p.line === line;
-        const matchesPublisher = !publisher || p.publisher === publisher;
+        const matchesVenue = !venue || p.venue === venue;
         const matchesYear = !year || p.date.slice(0,4) === year;
-        return matchesQuery && matchesLine && matchesPublisher && matchesYear;
+        return matchesQuery && matchesLine && matchesVenue && matchesYear;
       })
       .sort((a,b) => new Date(b.date) - new Date(a.date));
   }
 
   function formatDate(iso){
     const d = new Date(iso + "T00:00:00");
-    return d.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+    return d.toLocaleDateString('en-US', { year: 'numeric' });
   }
 
   function renderList(){
@@ -512,18 +684,18 @@
       : `Showing ${start + 1}–${Math.min(start + PER_PAGE, filtered.length)} of ${filtered.length} publication${filtered.length === 1 ? '' : 's'}`;
 
     if (pageItems.length === 0){
-      listEl.innerHTML = `<div class="pub-empty">No publications found. Try clearing filters or using a different search term.</div>`;
+      listEl.innerHTML = `<div class="pub-empty">No publications yet. Check back soon.</div>`;
     } else {
       listEl.innerHTML = pageItems.map(p => `
         <div class="pub-card">
-          <div class="pub-icon">PDF</div>
+          <div class="pub-icon">PUB</div>
           <div class="pub-body">
-            <div class="pub-meta">${p.publisher} · ${p.line} · ${formatDate(p.date)}</div>
+            <div class="pub-meta">${p.venue} · ${p.line} · ${formatDate(p.date)}</div>
             <div class="pub-title">${p.title}</div>
-            <p class="pub-desc">${p.description} Author: ${p.author}.</p>
+            <p class="pub-desc">${p.authors}</p>
             <div class="pub-footer">
-              ${p.tags.map(t => `<span class="pub-tag">${t}</span>`).join('')}
-              <a href="${p.file}" class="btn btn-primary" target="_blank">Download PDF</a>
+              ${(p.tags || []).map(t => `<span class="pub-tag">${t}</span>`).join('')}
+              ${p.link ? `<a href="${p.link}" class="btn btn-primary" target="_blank">View publication</a>` : ''}
             </div>
           </div>
         </div>
