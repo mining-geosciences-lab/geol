@@ -43,11 +43,11 @@
   .brand{display:flex; align-items:center; gap:12px;}
   .brand-text{font-weight:700; font-size:17px; letter-spacing:-0.2px; color:#fff;}
   .brand-sub{font-size:11px; color:rgba(255,255,255,0.7); font-weight:500; letter-spacing:0.3px;}
-  nav ul{list-style:none; display:flex; gap:20px;}
+  nav ul{list-style:none; display:flex; gap:14px;}
   nav a{
-    font-size:13px; font-weight:700; color:#fff;
-    text-transform:uppercase; letter-spacing:0.5px;
-    position:relative; padding:6px 0;
+    font-size:11.5px; font-weight:700; color:#fff;
+    text-transform:uppercase; letter-spacing:0.3px;
+    position:relative; padding:6px 0; white-space:nowrap;
   }
   nav a.active::after, nav a:hover::after{
     content:""; position:absolute; left:0; bottom:0; height:2px; width:100%;
@@ -233,7 +233,7 @@
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html" class="active">Our Lab</a></li>
-        <li><a href="research.html">Research</a></li>
+        <li><a href="research.html">Research &amp; Publications</a></li>
         <li><a href="projects.html">Projects</a></li>
         <li><a href="courses.html">Courses</a></li>
         <li><a href="news.html">News</a></li>
@@ -248,7 +248,7 @@
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">Our Lab</a></li>
-      <li><a href="research.html">Research</a></li>
+      <li><a href="research.html">Research &amp; Publications</a></li>
       <li><a href="projects.html">Projects</a></li>
       <li><a href="courses.html">Courses</a></li>
       <li><a href="news.html">News</a></li>
@@ -305,6 +305,22 @@
 
       <div class="team-card">
         <div class="team-card-head">
+          <div class="team-photo"><img src="team/Matias.jpg" alt="Matías Clunes"></div>
+          <div class="team-name">Matías Clunes</div>
+          <div class="team-role-short">Postdoctoral Researcher</div>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-head">
+          <div class="team-photo placeholder">CV</div>
+          <div class="team-name">Carla Valenzuela</div>
+          <div class="team-role-short">Postdoctoral Researcher</div>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-head">
           <div class="team-photo"><img src="team/Daniel.jpg" alt="Daniel Lira"></div>
           <div class="team-name">Daniel Lira</div>
           <div class="team-role-short">Co-Supervisor · MSc in Electrical Engineering</div>
@@ -313,9 +329,33 @@
 
       <div class="team-card">
         <div class="team-card-head">
-          <div class="team-photo placeholder">DM</div>
-          <div class="team-name">Diego Macilla</div>
-          <div class="team-role-short">Senior Engineer</div>
+          <div class="team-photo"><img src="team/Fernando.jpg" alt="Fernando Soto"></div>
+          <div class="team-name">Fernando Soto</div>
+          <div class="team-role-short">Co-Supervisor · MSc in Electrical Engineering</div>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-head">
+          <div class="team-photo"><img src="team/Camilo.jpg" alt="Camilo Espinosa"></div>
+          <div class="team-name">Camilo Espinosa</div>
+          <div class="team-role-short">Project Engineer</div>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-head">
+          <div class="team-photo"><img src="team/Bruno.jpg" alt="Bruno Martínez"></div>
+          <div class="team-name">Bruno Martínez</div>
+          <div class="team-role-short">Project Engineer</div>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-head">
+          <div class="team-photo"><img src="team/Mariel.jpg" alt="Mariel Carrión"></div>
+          <div class="team-name">Mariel Carrión</div>
+          <div class="team-role-short">Project Engineer</div>
         </div>
       </div>
 
@@ -331,6 +371,22 @@
         <div class="team-card-head">
           <div class="team-photo"><img src="team/Diego.jpg" alt="Diego Moreno"></div>
           <div class="team-name">Diego Moreno</div>
+          <div class="team-role-short">Doctoral Assistant</div>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-head">
+          <div class="team-photo"><img src="team/Lucy.jpg" alt="Lucy Bravo"></div>
+          <div class="team-name">Lucy Bravo</div>
+          <div class="team-role-short">Doctoral Assistant</div>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-head">
+          <div class="team-photo"><img src="team/Paulo.jpg" alt="Paulo Campoverde"></div>
+          <div class="team-name">Paulo Campoverde</div>
           <div class="team-role-short">Doctoral Assistant</div>
         </div>
       </div>
@@ -353,73 +409,9 @@
 
       <div class="team-card">
         <div class="team-card-head">
-          <div class="team-photo"><img src="team/Lucy.jpg" alt="Lucy Bravo"></div>
-          <div class="team-name">Lucy Bravo</div>
-          <div class="team-role-short">Doctoral Assistant</div>
-        </div>
-      </div>
-
-      <div class="team-card">
-        <div class="team-card-head">
-          <div class="team-photo"><img src="team/Matias.jpg" alt="Matías Clunes"></div>
-          <div class="team-name">Matías Clunes</div>
-          <div class="team-role-short">Postdoctoral Researcher</div>
-        </div>
-      </div>
-
-      <div class="team-card">
-        <div class="team-card-head">
-          <div class="team-photo"><img src="team/Paulo.jpg" alt="Paulo Campoverde"></div>
-          <div class="team-name">Paulo Campoverde</div>
-          <div class="team-role-short">Doctoral Assistant</div>
-        </div>
-      </div>
-
-      <div class="team-card">
-        <div class="team-card-head">
           <div class="team-photo"><img src="team/Roberto.jpeg" alt="Roberto Larregla"></div>
           <div class="team-name">Roberto Larregla</div>
           <div class="team-role-short">MSc Student</div>
-        </div>
-      </div>
-
-      <div class="team-card">
-        <div class="team-card-head">
-          <div class="team-photo"><img src="team/Camilo.jpg" alt="Camilo Espinosa"></div>
-          <div class="team-name">Camilo Espinosa</div>
-          <div class="team-role-short">Project Engineer</div>
-        </div>
-      </div>
-
-      <div class="team-card">
-        <div class="team-card-head">
-          <div class="team-photo"><img src="team/Bruno.jpg" alt="Bruno Martínez"></div>
-          <div class="team-name">Bruno Martínez</div>
-          <div class="team-role-short">Project Engineer</div>
-        </div>
-      </div>
-
-      <div class="team-card">
-        <div class="team-card-head">
-          <div class="team-photo"><img src="team/Fernando.jpg" alt="Fernando Soto"></div>
-          <div class="team-name">Fernando Soto</div>
-          <div class="team-role-short">Co-Supervisor · MSc in Electrical Engineering</div>
-        </div>
-      </div>
-
-      <div class="team-card">
-        <div class="team-card-head">
-          <div class="team-photo placeholder">CV</div>
-          <div class="team-name">Carla Valenzuela</div>
-          <div class="team-role-short">Postdoctoral Researcher</div>
-        </div>
-      </div>
-
-      <div class="team-card">
-        <div class="team-card-head">
-          <div class="team-photo"><img src="team/Mariel.jpg" alt="Mariel Carrión"></div>
-          <div class="team-name">Mariel Carrión</div>
-          <div class="team-role-short">Project Engineer</div>
         </div>
       </div>
 
@@ -507,7 +499,7 @@
         <div class="footer-col">
           <h4>Navigation</h4>
           <a href="index.html">Home</a>
-          <a href="research.html">Research</a>
+          <a href="research.html">Research &amp; Publications</a>
           <a href="projects.html">Projects</a>
           <a href="courses.html">Courses</a>
           <a href="news.html">News</a>
