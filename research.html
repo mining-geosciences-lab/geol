@@ -142,12 +142,12 @@
   .pub-filters{
     background:#fff; border:1px solid var(--stone-line); border-radius:12px;
     padding:20px 24px; margin-bottom:28px;
-    display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr auto; gap:14px; align-items:end;
+    display:grid; grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) auto; gap:14px; align-items:end;
   }
-  .filter-field{display:flex; flex-direction:column; gap:6px;}
+  .filter-field{display:flex; flex-direction:column; gap:6px; min-width:0;}
   .filter-field label{font-size:11px; font-weight:700; letter-spacing:0.4px; text-transform:uppercase; color:var(--stone);}
   .filter-field input, .filter-field select{
-    border:1.5px solid var(--stone-line); border-radius:8px; padding:9px 12px;
+    width:100%; min-width:0; border:1.5px solid var(--stone-line); border-radius:8px; padding:9px 12px;
     font-family:'Montserrat', sans-serif; font-size:14px; font-weight:600; color:var(--ink);
     background:var(--paper);
   }
