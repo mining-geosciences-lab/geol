@@ -19,7 +19,7 @@
 const PROJECTS = [
   {
     id: "elmo-etapa-1",
-    name: "ELMO — Etapa 1",
+    name: "ELMO — Stage 1",
     status: "Wrapping Up",
     partner: "Codelco",
     dates: "2024 – Dec 2026",
@@ -45,7 +45,7 @@ const PROJECTS = [
   },
   {
     id: "chuquicamata-fallas",
-    name: "Chuquicamata — Fallas Geológicas",
+    name: "Chuquicamata — Geological Faults",
     status: "Wrapping Up",
     partner: "Codelco",
     dates: "2025 – 2026",
@@ -58,7 +58,7 @@ const PROJECTS = [
   },
   {
     id: "el-teniente-etapa-3",
-    name: "El Teniente — Etapa 3",
+    name: "El Teniente — Stage 3",
     status: "Wrapping Up",
     partner: "Codelco",
     dates: "2025 – 2027",
@@ -71,13 +71,13 @@ const PROJECTS = [
   },
   {
     id: "gerencia-geociencias",
-    name: "Gerencia de Geociencias",
+    name: "Geosciences Management",
     status: "Upcoming",
     partner: "Codelco",
     dates: "2026",
     line: "Advanced Geotechnical Characterization",
     team: "M. Clunes, C. Valenzuela, L.F. Orellana",
-    shortDesc: "Formación de la gerencia de geociencias de Codelco.",
+    shortDesc: "Formation of Codelco's Geosciences Management division.",
     fullDesc: "",
     tags: ["Geosciences", "Codelco"],
     image: "images/7167097613_847bc5d10d_o.jpg"
@@ -119,11 +119,11 @@ const PROJECTS = [
     shortDesc: "Individual thesis projects by GeoL master's and doctoral students, supervised within the lab's research lines.",
     fullDesc: "Examples from recent presentations: R. Larregla (isostatic imbalance from mining extraction), S. Mass (pillar damage modeling), D. Díaz (fault reactivation methodology), M. Cabezas (hydraulic fracturing response), L. Bravo (seismicity-based fault reactivation), F. Valdés (rock alteration properties).",
     tags: ["Thesis", "Graduate students"],
-    image: "images/geol_2025.jpg"
+    image: "team/geol_2025_2.jpg"
   },
   {
     id: "lab-mecanica-rocas",
-    name: "Lab. Mecánica de Rocas",
+    name: "Rock Mechanics Lab",
     status: "Starting",
     partner: "Codelco, UC, Geoblast",
     dates: "2026",
@@ -136,13 +136,13 @@ const PROJECTS = [
   },
   {
     id: "red-regional-sismica-det",
-    name: "Red Regional Sísmica DET",
+    name: "DET Regional Seismic Network",
     status: "Upcoming",
     partner: "El Teniente + universidades",
     dates: "2026",
     line: "Advanced Geotechnical Characterization",
     team: "C. Valenzuela, L.F. Orellana",
-    shortDesc: "Propuesta de red regional sísmica, con espacio, infraestructura, requerimiento de personal, y sensores.",
+    shortDesc: "Proposal for a regional seismic network, covering space, infrastructure, staffing requirements, and sensors.",
     fullDesc: "",
     tags: ["Geosciences", "El Teniente"],
     image: "images/15856870447_0002226d9b_o.png"
