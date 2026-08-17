@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Projects — GeoL | Laboratory for Deep Mining Geoscience &amp; Engineering</title>
+<title id="pageTitle">Project — GeoL</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -46,71 +46,57 @@
   .strata-bar div:nth-child(5){background:var(--blue);}
   .strata-bar div:nth-child(6){background:var(--purple);}
 
-  .hero-split{display:grid; grid-template-columns:1.05fr 1fr; height:260px;}
+  .back-link{max-width:1180px; margin:24px auto 0; padding:0 32px;}
+  .back-link a{font-size:13px; font-weight:700; color:var(--purple); display:inline-flex; align-items:center; gap:6px;}
+  .back-link a:hover{text-decoration:underline;}
+
+  .hero-split{display:grid; grid-template-columns:1.05fr 1fr; height:300px; margin-top:16px;}
   .hero-image{overflow:hidden; background:var(--ink);}
-  .hero-image img{width:100%; height:100%; object-fit:cover; object-position:center 40%; display:block;}
+  .hero-image img{width:100%; height:100%; object-fit:cover; display:block;}
   .hero-content-split{display:flex; flex-direction:column; justify-content:center; padding:32px 56px; background:var(--tint);}
-  .eyebrow{font-size:12px; font-weight:700; letter-spacing:1.6px; text-transform:uppercase; color:var(--purple); margin-bottom:12px; display:block;}
-  .page-title{font-size:34px; font-weight:800; letter-spacing:-1px; margin-bottom:12px;}
-  .page-desc{font-size:15px; color:var(--stone); font-weight:500; line-height:1.55;}
-
-  section{padding:72px 32px;}
-  .section-inner{max-width:1180px; margin:0 auto;}
-  .section-head{max-width:640px; margin-bottom:44px;}
-  .section-eyebrow{font-size:12px; font-weight:700; letter-spacing:1.6px; text-transform:uppercase; color:var(--purple); margin-bottom:12px;}
-  .section-title{font-size:32px; font-weight:800; letter-spacing:-0.5px; margin-bottom:12px;}
-  .section-desc{color:var(--stone); font-size:15px; font-weight:500;}
-  .tint{background:var(--tint);}
-
-  .proj-filters{
-    background:#fff; border:1px solid var(--stone-line); border-radius:12px;
-    padding:20px 24px; margin-bottom:28px;
-    display:grid; grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr) auto; gap:14px; align-items:end;
-  }
-  .filter-field{display:flex; flex-direction:column; gap:6px; min-width:0;}
-  .filter-field label{font-size:11px; font-weight:700; letter-spacing:0.4px; text-transform:uppercase; color:var(--stone);}
-  .filter-field input, .filter-field select{
-    width:100%; min-width:0; border:1.5px solid var(--stone-line); border-radius:8px; padding:9px 12px;
-    font-family:'Montserrat', sans-serif; font-size:14px; font-weight:600; color:var(--ink);
-    background:var(--paper);
-  }
-  .filter-field input:focus, .filter-field select:focus{outline:none; border-color:var(--purple);}
-  .filter-clear{
-    background:none; border:1.5px solid var(--stone-line); border-radius:8px;
-    padding:9px 16px; font-size:13px; font-weight:700; color:var(--stone);
-    cursor:pointer; white-space:nowrap; font-family:'Montserrat', sans-serif;
-    transition:all .2s ease;
-  }
-  .filter-clear:hover{border-color:var(--purple); color:var(--purple);}
-  .proj-count{font-size:13px; color:var(--stone); font-weight:600; margin-bottom:20px;}
-  .proj-empty{
-    text-align:center; padding:48px 24px; color:var(--stone); font-weight:600; font-size:14px;
-    background:#fff; border:1px dashed var(--stone-line); border-radius:12px;
-  }
-
-  .project-grid{display:grid; grid-template-columns:repeat(2, 1fr); gap:24px;}
-  .project-card{
-    background:#fff; border:1px solid var(--stone-line); border-radius:14px; overflow:hidden;
-    transition:transform .2s ease, border-color .2s ease; display:block;
-  }
-  .project-card:hover{transform:translateY(-3px); border-color:var(--purple);}
-  .project-thumb{width:100%; aspect-ratio:16/9; overflow:hidden; background:var(--tint);}
-  .project-thumb img{width:100%; height:100%; object-fit:cover; display:block;}
-  .project-body{padding:26px;}
   .project-status{
     display:inline-block; font-size:11px; font-weight:700; letter-spacing:0.4px; text-transform:uppercase;
-    padding:4px 11px; border-radius:20px; margin-bottom:14px;
+    padding:5px 13px; border-radius:20px; margin-bottom:16px; width:fit-content;
   }
   .status-upcoming{background:var(--tint-blue); color:var(--blue);}
   .status-starting{background:#E3F6EF; color:#0F9D72;}
-  .status-inprogress{background:var(--tint); color:var(--purple);}
+  .status-inprogress{background:#fff; color:var(--purple);}
   .status-wrappingup{background:#FFF1DC; color:#B5680A;}
   .status-completed{background:#E8F5E9; color:#2E7D32;}
-  .project-title{font-size:18px; font-weight:800; margin-bottom:10px; letter-spacing:-0.3px;}
-  .project-meta{font-size:12px; color:var(--purple); font-weight:700; margin-bottom:10px; text-transform:uppercase; letter-spacing:0.3px;}
-  .project-desc{font-size:14px; color:var(--stone); font-weight:500; line-height:1.65; margin-bottom:16px;}
-  .project-tags{display:flex; flex-wrap:wrap; gap:8px;}
-  .project-tag{background:var(--tint); color:var(--purple); font-size:11.5px; font-weight:700; padding:4px 11px; border-radius:20px;}
+  .page-title{font-size:32px; font-weight:800; letter-spacing:-1px; margin-bottom:10px;}
+  .page-desc{font-size:15px; color:var(--stone); font-weight:500; line-height:1.55;}
+
+  section{padding:56px 32px;}
+  .section-inner{max-width:1180px; margin:0 auto;}
+  .section-eyebrow{font-size:12px; font-weight:700; letter-spacing:1.6px; text-transform:uppercase; color:var(--purple); margin-bottom:12px;}
+  .section-title{font-size:26px; font-weight:800; letter-spacing:-0.5px; margin-bottom:24px;}
+  .tint{background:var(--tint);}
+
+  /* ===== META GRID ===== */
+  .meta-grid{display:grid; grid-template-columns:repeat(4, 1fr); gap:24px; margin-bottom:40px;}
+  .meta-item{background:#fff; border:1px solid var(--stone-line); border-radius:12px; padding:20px;}
+  .meta-label{font-size:11px; font-weight:700; letter-spacing:0.4px; text-transform:uppercase; color:var(--purple); margin-bottom:8px;}
+  .meta-value{font-size:14px; font-weight:700; color:var(--ink); line-height:1.5;}
+  .meta-value.empty{color:var(--stone); font-weight:500; font-style:italic;}
+
+  .desc-block{background:#fff; border:1px solid var(--stone-line); border-radius:14px; padding:32px; margin-bottom:16px;}
+  .desc-block p{font-size:15px; color:var(--ink); font-weight:500; line-height:1.8;}
+  .tags-row{display:flex; flex-wrap:wrap; gap:8px; margin-top:20px;}
+  .tag-pill{background:var(--tint); color:var(--purple); font-size:12px; font-weight:700; padding:5px 13px; border-radius:20px;}
+
+  /* ===== RELATED LISTS ===== */
+  .related-card{
+    background:#fff; border:1px solid var(--stone-line); border-radius:12px;
+    padding:22px 26px; margin-bottom:14px;
+  }
+  .related-meta{font-size:11.5px; color:var(--purple); font-weight:700; text-transform:uppercase; letter-spacing:0.3px; margin-bottom:6px;}
+  .related-title{font-size:15.5px; font-weight:700; margin-bottom:6px;}
+  .related-desc{font-size:13.5px; color:var(--stone); font-weight:500;}
+  .related-link{display:inline-block; margin-top:10px; font-size:12.5px; font-weight:700; color:var(--purple);}
+  .empty-state{
+    text-align:center; padding:40px 24px; color:var(--stone); font-weight:600; font-size:14px;
+    background:#fff; border:1px dashed var(--stone-line); border-radius:12px;
+  }
 
   .btn{display:inline-flex; align-items:center; gap:8px; padding:12px 22px; border-radius:8px; font-size:14px; font-weight:700; transition:all .2s ease;}
   .btn-primary{background:var(--purple); color:#fff;}
@@ -123,7 +109,7 @@
     border-radius:16px; padding:56px; color:#fff;
     display:flex; align-items:center; justify-content:space-between; gap:32px; flex-wrap:wrap;
   }
-  .cta-band h2{font-size:26px; font-weight:800; max-width:460px;}
+  .cta-band h2{font-size:24px; font-weight:800; max-width:460px;}
   .cta-band p{font-size:14px; opacity:0.85; margin-top:10px; max-width:420px; font-weight:500;}
 
   footer{border-top:1px solid var(--stone-line); padding:48px 32px 28px;}
@@ -142,10 +128,8 @@
     .hero-split{grid-template-columns:1fr; height:auto;}
     .hero-image{height:200px;}
     .hero-content-split{padding:28px 24px;}
-    .page-title{font-size:26px;}
-    .proj-filters{grid-template-columns:1fr 1fr;}
-    .filter-clear{grid-column:1/-1;}
-    .project-grid{grid-template-columns:1fr;}
+    .page-title{font-size:24px;}
+    .meta-grid{grid-template-columns:1fr 1fr;}
     .cta-band{padding:36px;}
   }
 </style>
@@ -191,58 +175,11 @@
 
 <div class="strata-bar"><div></div><div></div><div></div><div></div><div></div><div></div></div>
 
-<div class="hero-split">
-  <div class="hero-image">
-    <img src="images/31061253238_0f12963932_o.jpg" alt="Underground mining equipment in operation">
-  </div>
-  <div class="hero-content-split">
-    <span class="eyebrow">What we're working on</span>
-    <h1 class="page-title">Projects</h1>
-    <p class="page-desc">Active applied-research collaborations where GeoL's geomechanical and geotechnical work is put into practice, together with industry partners. Click a project to see its own page, with related news and publications.</p>
-  </div>
+<div class="back-link"><a href="projects.html">‹ Back to Projects</a></div>
+
+<div id="projectContent">
+  <!-- Filled in by JS -->
 </div>
-
-<section>
-  <div class="section-inner">
-    <div class="section-head">
-      <div class="section-eyebrow">Active work</div>
-      <div class="section-title">Current projects</div>
-      <p class="section-desc">Ongoing collaborations applying GeoL's research to real deep-mining operations.</p>
-    </div>
-
-    <div class="proj-filters">
-      <div class="filter-field">
-        <label for="projSearch">Search</label>
-        <input type="text" id="projSearch" placeholder="Name, keyword, partner...">
-      </div>
-      <div class="filter-field">
-        <label for="projStatus">Status</label>
-        <select id="projStatus"><option value="">All statuses</option></select>
-      </div>
-      <div class="filter-field">
-        <label for="projLine">Research line</label>
-        <select id="projLine"><option value="">All lines</option></select>
-      </div>
-      <button class="filter-clear" id="projClear">Clear filters</button>
-    </div>
-
-    <div class="proj-count" id="projCount"></div>
-    <div class="project-grid" id="projGrid"></div>
-  </div>
-</section>
-
-<section class="tint">
-  <div class="section-inner">
-    <div class="cta-band">
-      <div>
-        <img src="assets/geol-icon-blanco.svg" alt="GeoL" style="width:44px; height:auto; margin-bottom:18px;">
-        <h2>Read the publications behind these projects</h2>
-        <p>Detailed academic work on the geomechanical challenges each project addresses.</p>
-      </div>
-      <a href="research.html" class="btn btn-white">Go to research</a>
-    </div>
-  </div>
-</section>
 
 <footer>
   <div class="footer-inner">
@@ -291,79 +228,128 @@
 </script>
 
 <script src="projects-data.js"></script>
+<script src="news-data.js"></script>
+<script src="publications-data.js"></script>
 <script>
   function statusClass(status){
     return 'status-' + status.toLowerCase().replace(/\s+/g, '');
   }
-
-  const searchInput = document.getElementById('projSearch');
-  const statusSelect = document.getElementById('projStatus');
-  const lineSelect = document.getElementById('projLine');
-  const clearBtn = document.getElementById('projClear');
-  const gridEl = document.getElementById('projGrid');
-  const countEl = document.getElementById('projCount');
-
-  function populateFilterOptions(){
-    const statuses = ["Upcoming", "Starting", "In Progress", "Wrapping Up", "Completed"].filter(s => PROJECTS.some(p => p.status === s));
-    const lines = [...new Set(PROJECTS.map(p => p.line).filter(Boolean))].sort();
-    statuses.forEach(s => statusSelect.insertAdjacentHTML('beforeend', `<option value="${s}">${s}</option>`));
-    lines.forEach(l => lineSelect.insertAdjacentHTML('beforeend', `<option value="${l}">${l}</option>`));
+  function formatDate(iso){
+    const d = new Date(iso + "T00:00:00");
+    return d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+  }
+  function formatYear(iso){
+    return iso.slice(0,4);
   }
 
-  function getFiltered(){
-    const q = searchInput.value.trim().toLowerCase();
-    const status = statusSelect.value;
-    const line = lineSelect.value;
-    return PROJECTS.filter(p => {
-      const matchesQuery = !q || (
-        p.name.toLowerCase().includes(q) ||
-        (p.shortDesc || '').toLowerCase().includes(q) ||
-        (p.partner || '').toLowerCase().includes(q) ||
-        (p.tags || []).some(t => t.toLowerCase().includes(q))
-      );
-      const matchesStatus = !status || p.status === status;
-      const matchesLine = !line || p.line === line;
-      return matchesQuery && matchesStatus && matchesLine;
-    });
-  }
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get('id');
+  const project = PROJECTS.find(p => p.id === id);
+  const contentEl = document.getElementById('projectContent');
 
-  function renderGrid(){
-    const filtered = getFiltered();
-    countEl.textContent = filtered.length === 0
-      ? "No projects match these filters."
-      : `Showing ${filtered.length} project${filtered.length === 1 ? '' : 's'}`;
-
-    if (filtered.length === 0){
-      gridEl.innerHTML = `<div class="proj-empty" style="grid-column:1/-1;">No projects found. Try clearing filters or using a different search term.</div>`;
-      return;
-    }
-
-    gridEl.innerHTML = filtered.map(p => `
-      <a class="project-card" href="project.html?id=${p.id}">
-        <div class="project-thumb"><img src="${p.image}" alt="${p.name}"></div>
-        <div class="project-body">
-          <span class="project-status ${statusClass(p.status)}">${p.status}</span>
-          <div class="project-meta">${p.partner || ''}</div>
-          <div class="project-title">${p.name}</div>
-          <p class="project-desc">${p.shortDesc || ''}</p>
-          <div class="project-tags">
-            ${(p.tags || []).map(t => `<span class="project-tag">${t}</span>`).join('')}
+  if (!project){
+    contentEl.innerHTML = `
+      <section>
+        <div class="section-inner">
+          <div class="empty-state">
+            Project not found. <a href="projects.html" style="color:var(--purple); font-weight:700;">Go back to Projects</a>.
           </div>
         </div>
-      </a>
-    `).join('');
+      </section>
+    `;
+  } else {
+    document.getElementById('pageTitle').textContent = project.name + " — GeoL Projects";
+
+    const relatedNews = NEWS_POSTS.filter(n => n.project === project.id).sort((a,b) => new Date(b.date) - new Date(a.date));
+    const relatedPubs = PUBLICATIONS.filter(p => p.project === project.id).sort((a,b) => new Date(b.date) - new Date(a.date));
+
+    contentEl.innerHTML = `
+      <div class="hero-split">
+        <div class="hero-image"><img src="${project.image}" alt="${project.name}"></div>
+        <div class="hero-content-split">
+          <span class="project-status ${statusClass(project.status)}">${project.status}</span>
+          <h1 class="page-title">${project.name}</h1>
+          <p class="page-desc">${project.partner ? project.partner : ''}${project.partner && project.dates ? ' · ' : ''}${project.dates || ''}</p>
+        </div>
+      </div>
+
+      <section>
+        <div class="section-inner">
+          <div class="meta-grid">
+            <div class="meta-item">
+              <div class="meta-label">Partner / Funder</div>
+              <div class="meta-value ${project.partner ? '' : 'empty'}">${project.partner || 'Not specified yet'}</div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-label">Dates</div>
+              <div class="meta-value ${project.dates ? '' : 'empty'}">${project.dates || 'Not specified yet'}</div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-label">Research Line</div>
+              <div class="meta-value ${project.line ? '' : 'empty'}">${project.line || 'Not specified yet'}</div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-label">Team / WP</div>
+              <div class="meta-value ${project.team ? '' : 'empty'}">${project.team || 'Not specified yet'}</div>
+            </div>
+          </div>
+
+          <div class="desc-block">
+            <p>${project.fullDesc || project.shortDesc || '<span style="color:var(--stone); font-style:italic;">No description yet.</span>'}</p>
+            ${(project.tags && project.tags.length) ? `<div class="tags-row">${project.tags.map(t => `<span class="tag-pill">${t}</span>`).join('')}</div>` : ''}
+          </div>
+        </div>
+      </section>
+
+      <section class="tint">
+        <div class="section-inner">
+          <div class="section-eyebrow">From the lab</div>
+          <div class="section-title">Related News</div>
+          ${relatedNews.length === 0
+            ? `<div class="empty-state">No news posts linked to this project yet.</div>`
+            : relatedNews.map(n => `
+              <div class="related-card">
+                <div class="related-meta">${n.category} · ${formatDate(n.date)}</div>
+                <div class="related-title">${n.title}</div>
+                <p class="related-desc">${n.excerpt}</p>
+                <a class="related-link" href="news.html#${n.id}">Read more ↗</a>
+              </div>
+            `).join('')
+          }
+        </div>
+      </section>
+
+      <section>
+        <div class="section-inner">
+          <div class="section-eyebrow">Peer-reviewed work</div>
+          <div class="section-title">Related Publications</div>
+          ${relatedPubs.length === 0
+            ? `<div class="empty-state">No publications linked to this project yet.</div>`
+            : relatedPubs.map(p => `
+              <div class="related-card">
+                <div class="related-meta">${p.venue} · ${formatYear(p.date)}</div>
+                <div class="related-title">${p.title}</div>
+                <p class="related-desc">${p.authors}</p>
+                ${p.link ? `<a class="related-link" href="${p.link}" target="_blank">View publication ↗</a>` : ''}
+              </div>
+            `).join('')
+          }
+        </div>
+      </section>
+
+      <section class="tint">
+        <div class="section-inner">
+          <div class="cta-band">
+            <div>
+              <h2>See all of GeoL's projects</h2>
+              <p>Explore the full portfolio of active applied-research collaborations.</p>
+            </div>
+            <a href="projects.html" class="btn btn-white">Back to Projects</a>
+          </div>
+        </div>
+      </section>
+    `;
   }
-
-  [searchInput, statusSelect, lineSelect].forEach(el => {
-    el.addEventListener('input', renderGrid);
-  });
-  clearBtn.addEventListener('click', () => {
-    searchInput.value = ""; statusSelect.value = ""; lineSelect.value = "";
-    renderGrid();
-  });
-
-  populateFilterOptions();
-  renderGrid();
 </script>
 
 </body>

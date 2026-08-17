@@ -48,6 +48,7 @@ const NEWS_POSTS = [
     title: "GeoL at EGU 2026 — Robbiano et al.",
     date: "2026-05-04",
     category: "Conference",
+    project: "el-teniente-etapa-3",
     excerpt: "Robbiano, F., Violay, M., Orellana, L.F., Guggisberg, A. & Heinkel, E. presented on veinlet behavior in El Teniente mine rock samples.",
     body: "Robbiano, F., Violay, M., Orellana, L.F., Guggisberg, A. & Heinkel, E. presented \"The role of veinlets in the unconfined behavior of El Teniente Mine rock samples: Implications for mining-induced rockmass failure\" at the European Geoscience Union Meeting (EGU) 2026, Vienna, Austria, May 2026."
   },
@@ -64,6 +65,7 @@ const NEWS_POSTS = [
     title: "GeoL at the 16th Euroconference on Rock Physics and Rock Mechanics — Orellana",
     date: "2026-01-19",
     category: "Conference",
+    project: "el-teniente-etapa-3",
     excerpt: "Orellana, L.F. presented on frictional properties of main faults at El Teniente mine.",
     body: "Orellana, L.F., Fieldhouse, J., Violay, M., Sepúlveda, M.P. & Gonzalez, R. presented \"Frictional properties of main faults at El Teniente mine: Implications to deep mining conditions\" at the 16th Euroconference on Rock Physics and Rock Mechanics, held January 19–23, 2026 in Les Diablerets, Switzerland."
   },
@@ -72,6 +74,7 @@ const NEWS_POSTS = [
     title: "GeoL at the 16th Euroconference on Rock Physics and Rock Mechanics — Robbiano",
     date: "2026-01-19",
     category: "Conference",
+    project: "el-teniente-etapa-3",
     excerpt: "Robbiano, F. and team presented on veinlet behavior in El Teniente mine rock samples.",
     body: "Robbiano, F., Heinkel, E., Guggisberg, A., Orellana, L.F. & Violay, M. presented \"The role of veinlets in the unconfined behavior of El Teniente Mine rock samples: Implications for mining-induced rockmass failure\" at the 16th Euroconference on Rock Physics and Rock Mechanics, January 19–23, 2026, Les Diablerets, Switzerland."
   },
@@ -80,6 +83,7 @@ const NEWS_POSTS = [
     title: "GeoL at CONAMET-SAM 2025 — Mera et al.",
     date: "2025-11-03",
     category: "Conference",
+    project: "chuquicamata-fallas",
     excerpt: "José Ignacio Mera presented on the characterization and stability of the main fault systems at Chuquicamata underground mine.",
     body: "Mera, J., Clunes, M., Bravo, L., Barindelli, G., Valenzuela, I. & Orellana, L.F. presented \"Caracterización y estabilidad de los principales sistemas de falla de Chuquicamata en la minería subterránea\" at the XXIII Congreso Internacional de Metalurgia y Materiales (CONAMET-SAM) 2025, November 3–7, 2025, Concepción, Chile."
   },
@@ -88,6 +92,7 @@ const NEWS_POSTS = [
     title: "GeoL at CONAMET-SAM 2025 — Valdés et al.",
     date: "2025-11-03",
     category: "Conference",
+    project: "student-thesis",
     excerpt: "Francisca Valdés presented on the mechanical and acoustic properties of rocks with quartz-sericite alteration.",
     body: "Valdés, F., Clunes, M., Roquer, T., Barindelli, G., Valenzuela, I. & Orellana, L.F. presented \"Mechanical and Acoustic properties of rocks with Quartz-Sericite alteration\" at the XXIII Congreso Internacional de Metalurgia y Materiales (CONAMET-SAM) 2025, November 3–7, 2025, Concepción, Chile."
   },
@@ -96,6 +101,7 @@ const NEWS_POSTS = [
     title: "GeoL at CONAMET 2025 — Larregla et al.",
     date: "2025-11-03",
     category: "Conference",
+    project: "student-thesis",
     excerpt: "Roberto Larregla presented on isostatic imbalance from mineral extraction in large deposits.",
     body: "Larregla, R., Roquer, T., Melnick, D. & Orellana, L.F. presented \"Desequilibrio isostático por extracción minera en grandes yacimientos\" at the XXIII Congreso Internacional CONAMET: Minería, Metalurgía, Materiales 2025, November 3–7, 2025, Concepción, Chile."
   },
@@ -104,6 +110,7 @@ const NEWS_POSTS = [
     title: "GeoL at CONAMET 2025 — Cabezas et al.",
     date: "2025-11-03",
     category: "Conference",
+    project: "student-thesis",
     excerpt: "Experimental evaluation of lithological response to hydraulic fracturing in underground mining.",
     body: "Cabezas, M., Clunes, M., Palma, S. & Orellana, L.F. presented \"Evaluación experimental de la respuesta litológica frente al Fracturamiento Hidráulico en Minería Subterránea\" at the XXIII Congreso Internacional CONAMET: Minería, Metalurgía, Materiales 2025, November 3–7, 2025, Concepción, Chile."
   },
@@ -112,6 +119,7 @@ const NEWS_POSTS = [
     title: "GeoL at ARMMIC 2025 — Bravo et al.",
     date: "2025-11-04",
     category: "Conference",
+    project: "student-thesis",
     excerpt: "Lucy Bravo presented a seismicity-based methodology for evaluating fault reactivation in underground mining.",
     body: "Bravo, L., Roquer, T., Gonzalez, R., Leon, I. & Diaz, D. presented \"Seismicity-based methodology for evaluating fault reactivation in underground mining\" at the Applied Research in Mining and Metallurgy International Congress (ARMMIC) 2025, November 4–7, 2025, Antofagasta, Chile."
   },
@@ -128,6 +136,7 @@ const NEWS_POSTS = [
     title: "GeoL at ARMMIC 2025 — Electromobility simulation study",
     date: "2025-11-04",
     category: "Conference",
+    project: "elmo-etapa-1",
     excerpt: "A multidisciplinary team presented simulation and decision-analysis work on electromobility scenarios in underground mining.",
     body: "Herrera, B., Espinosa, C., Martínez, B., Mancilla, D., Monsalve, G., Ramírez, G., Orchard, M.E., Ruiz-del-Solar, J., Flores-Quiroz, Á. & Orellana, L.F. presented \"Electromobility in underground mining: simulation and multicriteria decision analysis of scenarios to reduce emissions\" at ARMMIC 2025, November 4–7, 2025, Antofagasta, Chile."
   },
@@ -136,6 +145,7 @@ const NEWS_POSTS = [
     title: "GeoL at the Jornada Nacional de Mecánica de Rocas 2025 — Santander et al.",
     date: "2025-10-30",
     category: "Conference",
+    project: "el-teniente-etapa-3",
     excerpt: "Presentation on stress-induced damage evolution and fracture microstructures in El Teniente lithologies.",
     body: "Santander, P., Cortez, J., Browning, J., Roquer, T., Clunes, M., Marquardt, C., Benson, P., Koor, N., Sepúlveda, M.P., León, Í., Díaz, D., González, R., Celhay, F. & Orellana, L.F. presented \"Evolución del daño inducido por esfuerzos y microestructuras de fractura en litologías de El Teniente: integración de emisiones acústicas, anisotropía sísmica y análisis microscópico (SEM)\" at the Jornada Nacional de Mecánica de Rocas 2025, October 30, 2025, Santiago, Chile."
   },
@@ -152,6 +162,7 @@ const NEWS_POSTS = [
     title: "GeoL at the Jornada Nacional de Mecánica de Rocas 2025 — Cortez et al.",
     date: "2025-10-30",
     category: "Conference",
+    project: "el-teniente-etapa-3",
     excerpt: "Seismic response of El Teniente rocks and implications for rockburst hazard, from acoustic emission monitoring.",
     body: "Cortez, J., Browning, J., Roquer, T., Santander, P., Clunes, M., Valdés, F., Benson, P., Koor, N., Marquardt, C. & Orellana, L.F. presented \"Respuesta sísmica de las rocas de la mina El Teniente, Chile: Implicancias para el peligro de estallido de roca a partir del monitoreo de emisiones acústicas bajo carga monotónica\" at the Jornada Nacional de Mecánica de Rocas 2025, October 30, 2025, Santiago, Chile."
   },
@@ -160,6 +171,7 @@ const NEWS_POSTS = [
     title: "GeoL at Geomin-Mineplanning 2025 — Santander et al.",
     date: "2025-06-11",
     category: "Conference",
+    project: "el-teniente-etapa-3",
     excerpt: "Evolution of damage prior to induced failure in rocks from El Teniente mine.",
     body: "Santander, P., Cortez, J., Browning, J., Roquer, T., Clunes, M., Marquardt, C., Benson, P., Koor, N., Sepúlveda, M.P., León, Í., Díaz, D., González, R., Celhay, F. & Orellana, L.F. presented \"Evolution of damage prior to induce failure in rocks from El Teniente mine\" at Geomin–Mineplanning 2025: the 9th International Conference on Geology and Mine Planning, June 11–13, 2025, Santiago, Chile."
   },
@@ -168,6 +180,7 @@ const NEWS_POSTS = [
     title: "GeoL at Geomin-Mineplanning 2025 — Diaz et al.",
     date: "2025-06-11",
     category: "Conference",
+    project: "el-teniente-etapa-3",
     excerpt: "A new methodology to evaluate the reactivation of geological structures through advanced analytics at El Teniente mine.",
     body: "Diaz, D., Mery, N. & Orellana, L.F. presented \"Methodology to evaluate the Reactivation of Geological Structures through advanced Analytics, El Teniente Mine\" at Geomin–Mineplanning 2025: the 9th International Conference on Geology and Mine Planning, June 11–13, 2025, Santiago, Chile."
   }
