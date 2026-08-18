@@ -188,8 +188,9 @@
           <label for="cMessage">Message</label>
           <textarea id="cMessage" name="message" rows="5" required></textarea>
         </div>
-        <p class="form-note">This opens your email app with the message pre-filled, ready to send to geol@uchile.cl.</p>
-        <button type="submit" class="btn btn-primary">Send message</button>
+        <p class="form-note">Sent directly to geol@uchile.cl — no email app needed.</p>
+        <button type="submit" class="btn btn-primary" id="contactSubmitBtn">Send message</button>
+        <p id="contactStatus" style="margin-top:14px; font-size:13px; font-weight:700; display:none;"></p>
       </form>
     </div>
   </div>
@@ -240,14 +241,43 @@
     });
   });
 
-  document.getElementById('contactForm').addEventListener('submit', function(e){
+  const contactForm = document.getElementById('contactForm');
+  const submitBtn = document.getElementById('contactSubmitBtn');
+  const statusEl = document.getElementById('contactStatus');
+
+  /* ⚠️ Replace this with your real Formspree endpoint (see instructions).
+     It looks like: "https://formspree.io/f/xxxxxxxx" */
+  const FORMSPREE_ENDPOINT = "https://formspree.io/f/xyegblbk";
+
+  contactForm.addEventListener('submit', async function(e){
     e.preventDefault();
-    const name = document.getElementById('cName').value;
-    const email = document.getElementById('cEmail').value;
-    const subject = document.getElementById('cSubject').value;
-    const message = document.getElementById('cMessage').value;
-    const body = `From: ${name} (${email})\n\n${message}`;
-    window.location.href = `mailto:geol@uchile.cl?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Sending...";
+    statusEl.style.display = "none";
+
+    try {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: { "Accept": "application/json" },
+        body: new FormData(contactForm)
+      });
+
+      if (response.ok) {
+        contactForm.reset();
+        statusEl.textContent = "✓ Message sent — thank you! We'll get back to you soon.";
+        statusEl.style.color = "#2E7D32";
+        statusEl.style.display = "block";
+      } else {
+        throw new Error("Formspree error");
+      }
+    } catch (err) {
+      statusEl.textContent = "✗ Something went wrong. Please email us directly at geol@uchile.cl.";
+      statusEl.style.color = "#C62828";
+      statusEl.style.display = "block";
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Send message";
+    }
   });
 </script>
 
