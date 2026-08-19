@@ -131,8 +131,16 @@
   }
   .founder-text-col{
     display:flex; flex-direction:column; justify-content:center;
-    padding:8px 0; background:#fff;
+    padding:32px 40px; background:#fff; border-radius:12px; border:1px solid var(--stone-line);
   }
+  .founder-photo-col{overflow:hidden; aspect-ratio:4/5; border-radius:12px; cursor:pointer; position:relative;}
+  .founder-photo-col::after{
+    content:"Click for full bio"; position:absolute; left:0; right:0; bottom:0;
+    background:rgba(3,18,46,0.75); color:#fff; font-size:10.5px; font-weight:700;
+    text-align:center; padding:6px 4px; letter-spacing:0.2px;
+  }
+  .founder-bio-full{max-height:0; overflow:hidden; transition:max-height .35s ease;}
+  .founder-bio-full.open{max-height:600px; margin-top:14px;}
   .founder-photo-col{overflow:hidden; aspect-ratio:4/5; border-radius:12px;}
   .founder-photo-col img{width:100%; height:100%; object-fit:cover; display:block;}
   .founder-role{font-size:16px; font-weight:800; letter-spacing:0.5px; text-transform:uppercase; color:var(--purple); margin-bottom:10px;}
@@ -273,10 +281,13 @@
     <div class="founder-text-col">
       <div class="founder-role">Founder</div>
       <div class="founder-name">Luis Felipe Orellana</div>
-      <p class="founder-bio">Mining Civil Engineer and MSc in Mining Engineering from Universidad de Chile, and PhD in Mechanics (Geomechanics) from the École Polytechnique Fédérale de Lausanne (EPFL), Switzerland. With 15 years of experience in fundamental and applied research, university teaching, academic leadership, and specialized consulting in rock and fault mechanics, deep mining, geomechanical risk, and the intersection of climate change and mining systems — with a focus on mining electromobility.</p>
-      <p class="founder-bio" style="margin-top:14px;">Currently Assistant Professor at the Department of Mining Engineering, Universidad de Chile, and Associate Researcher at the Advanced Mining Technology Center (AMTC), where he leads the Deep Mining Geosciences and Engineering Laboratory (GeoL). He is a member of the Editorial Board of the <em>International Journal of Rock Mechanics and Mining Sciences</em>, author of more than 20 articles in Web of Science–indexed journals, and recipient of the Universidad de Chile Best Teacher Award (2022).</p>
+      <p class="founder-bio">Currently Assistant Professor at the Department of Mining Engineering, Universidad de Chile, and Associate Researcher at the Advanced Mining Technology Center (AMTC).</p>
+      <div class="founder-bio-full" id="founderBioFull">
+        <p class="founder-bio">Mining Civil Engineer and MSc in Mining Engineering from Universidad de Chile, and PhD in Mechanics (Geomechanics) from the École Polytechnique Fédérale de Lausanne (EPFL), Switzerland. With 15 years of experience in fundamental and applied research, university teaching, academic leadership, and specialized consulting in rock and fault mechanics, deep mining, geomechanical risk, and the intersection of climate change and mining systems — with a focus on mining electromobility.</p>
+        <p class="founder-bio" style="margin-top:14px;">He leads the Deep Mining Geosciences and Engineering Laboratory (GeoL). He is a member of the Editorial Board of the <em>International Journal of Rock Mechanics and Mining Sciences</em>, author of more than 20 articles in Web of Science–indexed journals, and recipient of the Universidad de Chile Best Teacher Award (2022).</p>
+      </div>
     </div>
-    <div class="founder-photo-col">
+    <div class="founder-photo-col" id="founderPhotoToggle">
       <img src="team/LFO.jpg" alt="Luis Felipe Orellana">
     </div>
   </div>
@@ -527,6 +538,10 @@
       mobileNav.classList.remove('open');
       navToggle.setAttribute('aria-expanded', 'false');
     });
+  });
+
+  document.getElementById('founderPhotoToggle').addEventListener('click', () => {
+    document.getElementById('founderBioFull').classList.toggle('open');
   });
 </script>
 
