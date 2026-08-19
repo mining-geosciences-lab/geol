@@ -70,19 +70,6 @@ const PROJECTS = [
     image: "images/13998229524_96853011b4_o.jpg"
   },
   {
-    id: "gerencia-geociencias",
-    name: "Geosciences Management",
-    status: "Upcoming",
-    partner: "Codelco",
-    dates: "2026",
-    line: "Advanced Geotechnical Characterization",
-    team: "M. Clunes, C. Valenzuela, L.F. Orellana",
-    shortDesc: "Formation of Codelco's Geosciences Management division.",
-    fullDesc: "",
-    tags: ["Geosciences", "Codelco"],
-    image: "images/7167097613_847bc5d10d_o.jpg"
-  },
-  {
     id: "pamma",
     name: "PAMMA",
     status: "In Progress",
@@ -108,43 +95,4 @@ const PROJECTS = [
     tags: ["Electromobility", "Energy systems"],
     image: "images/5496615871_84c572348c_o.jpg"
   },
-  {
-    id: "student-thesis",
-    name: "Student Thesis Projects",
-    status: "In Progress",
-    partner: "Universidad de Chile",
-    dates: "",
-    line: "",
-    team: "L.F. Orellana",
-    shortDesc: "Individual thesis projects by GeoL master's and doctoral students, supervised within the lab's research lines.",
-    fullDesc: "Examples from recent presentations: R. Larregla (isostatic imbalance from mining extraction), S. Mass (pillar damage modeling), D. Díaz (fault reactivation methodology), M. Cabezas (hydraulic fracturing response), L. Bravo (seismicity-based fault reactivation), F. Valdés (rock alteration properties).",
-    tags: ["Thesis", "Graduate students"],
-    image: "team/geol_2025_2.jpg"
-  },
-  {
-    id: "lab-mecanica-rocas",
-    name: "Rock Mechanics Lab",
-    status: "Starting",
-    partner: "Codelco, UC, Geoblast",
-    dates: "2026",
-    line: "Advanced Geotechnical Characterization",
-    team: "M. Carrión, M. Clunes, L.F. Orellana",
-    shortDesc: "",
-    fullDesc: "",
-    tags: ["Geosciences", "Laboratory"],
-    image: "images/44934596661_0a5c54d1bc_o.jpg"
-  },
-  {
-    id: "red-regional-sismica-det",
-    name: "DET Regional Seismic Network",
-    status: "Upcoming",
-    partner: "El Teniente + universidades",
-    dates: "2026",
-    line: "Advanced Geotechnical Characterization",
-    team: "C. Valenzuela, L.F. Orellana",
-    shortDesc: "Proposal for a regional seismic network, covering space, infrastructure, staffing requirements, and sensors.",
-    fullDesc: "",
-    tags: ["Geosciences", "El Teniente"],
-    image: "images/15856870447_0002226d9b_o.png"
-  }
 ];

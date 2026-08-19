@@ -9,16 +9,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --purple:#5903FA;
-    --purple-deep:#2C0182;
-    --blue:#014B96;
-    --blue-deep:#012F5E;
-    --ink:#120A26;
-    --paper:#FAF9FC;
-    --tint:#EDE8FC;
-    --tint-blue:#E6EDF5;
-    --stone:#8A8496;
-    --stone-line: rgba(18,10,38,0.08);
+    --purple:#173F8A; --purple-deep:#0F2C61; --blue:#173F8A; --blue-deep:#0F2C61;
+    --ink:#03122E; --paper:#F6F6F6; --tint:#EAEAEA; --tint-blue:#E6EDF5;
+    --stone:#707070; --stone-line: rgba(3,18,46,0.08);
+    --violet:#5903FA; --green:#1F8A70; --green-tint:#E3F6EF;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -33,7 +27,7 @@
   /* ===== NAV ===== */
   header{
     position:sticky; top:0; z-index:50;
-    background:var(--purple);
+    background:var(--ink);
     border-bottom:1px solid var(--purple-deep);
   }
   .nav-wrap{
@@ -132,18 +126,18 @@
   /* ===== FOUNDER / LFO BANNER ===== */
   .leadership-eyebrow{font-size:18px; letter-spacing:0.5px; margin-bottom:0;}
   .founder-split{
-    display:grid; grid-template-columns:1fr 1fr; min-height:400px;
-    max-width:1180px; margin:0 auto;
+    display:grid; grid-template-columns:1fr 220px; gap:32px; align-items:start;
+    max-width:1180px; margin:0 auto; padding:32px 0;
   }
   .founder-text-col{
     display:flex; flex-direction:column; justify-content:center;
-    padding:48px 64px; background:#fff;
+    padding:8px 0; background:#fff;
   }
-  .founder-photo-col{overflow:hidden;}
+  .founder-photo-col{overflow:hidden; aspect-ratio:4/5; border-radius:12px;}
   .founder-photo-col img{width:100%; height:100%; object-fit:cover; display:block;}
   .founder-role{font-size:16px; font-weight:800; letter-spacing:0.5px; text-transform:uppercase; color:var(--purple); margin-bottom:10px;}
   .founder-name{font-size:34px; font-weight:800; margin-bottom:18px; letter-spacing:-0.5px;}
-  .founder-bio{font-size:15px; color:var(--stone); font-weight:500; line-height:1.8; max-width:480px;}
+  .founder-bio{font-size:15px; color:var(--stone); font-weight:500; line-height:1.8; max-width:640px;}
 
   /* ===== TEAM GRID ===== */
   .team-grid{
@@ -180,7 +174,7 @@
   }
   .team-card.open .team-bio{max-height:260px;}
   .team-bio-inner{padding:14px 16px 18px; font-size:12px; color:var(--stone); font-weight:500; line-height:1.6; text-align:left;}
-  .team-social{display:inline-block; margin-top:8px; font-size:11.5px; font-weight:700; color:var(--purple);}
+  .team-social{display:inline-block; margin-top:8px; font-size:11.5px; font-weight:700; color:var(--violet);}
 
   /* ===== EMPTY STATE ===== */
   .empty-state{
@@ -191,13 +185,13 @@
   footer{border-top:1px solid var(--stone-line); padding:48px 32px 28px;}
   .footer-inner{max-width:1180px; margin:0 auto;}
   .footer-top{display:flex; justify-content:space-between; gap:40px; flex-wrap:wrap; margin-bottom:32px;}
-  .footer-brand p{font-size:13px; color:var(--purple); max-width:280px; margin-top:10px; font-weight:600;}
+  .footer-brand p{font-size:13px; color:var(--violet); max-width:280px; margin-top:10px; font-weight:600;}
   .footer-cols{display:flex; gap:56px; flex-wrap:wrap;}
   .footer-col h4{font-size:12px; font-weight:700; letter-spacing:0.5px; text-transform:uppercase; color:var(--purple); margin-bottom:14px;}
-  .footer-col a{display:block; font-size:14px; font-weight:600; margin-bottom:10px; color:var(--purple);}
+  .footer-col a{display:block; font-size:14px; font-weight:600; margin-bottom:10px; color:var(--violet);}
   .footer-bottom{
     border-top:1px solid var(--stone-line); padding-top:20px;
-    font-size:12px; color:var(--purple); font-weight:600;
+    font-size:12px; color:var(--violet); font-weight:600;
     display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;
   }
 
@@ -209,11 +203,10 @@
     .hero-split{grid-template-columns:1fr;}
     .hero-image{height:260px;}
     .hero-content-split{padding:36px 24px;}
-    .founder-split{grid-template-columns:1fr;}
-    .founder-photo-col{height:280px; order:-1;}
+    .founder-split{grid-template-columns:1fr; padding:24px 0;}
+    .founder-photo-col{aspect-ratio:4/5; width:200px; margin:0 auto; order:-1;}
     .founder-text-col{padding:32px 24px; text-align:center;}
     .founder-bio{max-width:none;}
-    .founder-photo{width:160px; height:160px;}
     .team-grid{gap:10px;}
   }
 </style>
@@ -223,11 +216,7 @@
 <header>
   <div class="nav-wrap">
     <a href="index.html" class="brand">
-      <img src="assets/geol-icon-blanco.svg" alt="GeoL" style="width:38px; height:auto;">
-      <div>
-        <div class="brand-text">GeoL</div>
-        <div class="brand-sub">Deep Mining Geoscience &amp; Engineering</div>
-      </div>
+      <img src="assets/geol-logo-full-blanco.svg" alt="GeoL — Laboratory for Deep Mining Geoscience & Engineering" style="height:42px; width:auto;">
     </a>
     <nav>
       <ul>
@@ -261,7 +250,7 @@
 
 <div class="hero-split">
   <div class="hero-image">
-    <img src="team/geol_2025_2.jpg" alt="The GeoL team together">
+    <img src="images/7167097613_847bc5d10d_o.jpg" alt="Drill core samples from GeoL fieldwork">
   </div>
   <div class="hero-content-split">
     <span class="eyebrow">Who we are</span>
@@ -271,7 +260,6 @@
     <div class="section-eyebrow" style="margin-top:28px;">Description</div>
     <div class="section-title" style="font-size:24px; margin-bottom:12px;">About GeoL</div>
     <p class="desc-text" style="font-size:14.5px; max-width:none;">GeoL — Laboratory for Deep Mining Geoscience &amp; Engineering — is a research group focused on the geomechanical and geotechnical challenges of deep underground mining. Our work combines rock mass characterization, numerical modeling, and applied technological innovation, developed alongside academic institutions and mining industry partners.</p>
-    <p class="desc-text" style="font-size:14.5px; max-width:none;">[Placeholder — replace with the lab's full description: mission, history, and what makes GeoL's approach distinctive.]</p>
   </div>
 </div>
 
@@ -339,6 +327,14 @@
         <div class="team-card-head">
           <div class="team-photo"><img src="team/Mariel.jpg" alt="Mariel Carrión"></div>
           <div class="team-name">Mariel Carrión</div>
+          <div class="team-role-short">Project Engineer</div>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-head">
+          <div class="team-photo placeholder">MO</div>
+          <div class="team-name">Martín Ortega</div>
           <div class="team-role-short">Project Engineer</div>
         </div>
       </div>
@@ -480,7 +476,7 @@
         <div class="team-card-head">
           <div class="team-photo placeholder">TR</div>
           <div class="team-name">Tomás Roquer</div>
-          <div class="team-role-short">Alumni</div>
+          <div class="team-role-short">Geologist — Academic at Universidad Técnica Federico Santa María</div>
         </div>
       </div>
 
