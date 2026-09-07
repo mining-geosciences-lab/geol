@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Lab — GeoL | Laboratory for Deep Mining Geoscience &amp; Engineering</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --purple:#173F8A; --purple-deep:#0F2C61; --blue:#173F8A; --blue-deep:#0F2C61;
+    --ink:#03122E; --paper:#F6F6F6; --tint:#EAEAEA; --tint-blue:#E6EDF5;
+    --stone:#707070; --stone-line: rgba(3,18,46,0.08);
+    --violet:#5903FA; --green:#1F8A70; --green-tint:#E3F6EF;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Montserrat', sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.6;
+  }
+  a{text-decoration:none;color:inherit;}
+
+  /* ===== NAV ===== */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:var(--ink);
+    border-bottom:1px solid var(--purple-deep);
+  }
+  .nav-wrap{
+    max-width:1180px; margin:0 auto; padding:16px 32px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .brand{display:flex; align-items:center; gap:12px;}
+  .brand-text{font-weight:700; font-size:17px; letter-spacing:-0.2px; color:#fff;}
+  .brand-sub{font-size:11px; color:rgba(255,255,255,0.7); font-weight:500; letter-spacing:0.3px;}
+  nav ul{list-style:none; display:flex; gap:14px;}
+  nav a{
+    font-size:11.5px; font-weight:700; color:#fff;
+    text-transform:uppercase; letter-spacing:0.3px;
+    position:relative; padding:6px 0; white-space:nowrap;
+  }
+  nav a.active::after, nav a:hover::after{
+    content:""; position:absolute; left:0; bottom:0; height:2px; width:100%;
+    background:#fff;
+  }
+  nav a::after{
+    content:""; position:absolute; left:0; bottom:0; height:2px; width:0;
+    background:#fff; transition:width .25s ease;
+  }
+  .nav-toggle{
+    display:none; flex-direction:column; justify-content:center; gap:5px;
+    width:36px; height:36px; background:none; border:none; cursor:pointer; padding:0;
+  }
+  .nav-toggle span{
+    display:block; width:22px; height:2px; background:#fff; border-radius:2px;
+    transition:transform .2s ease, opacity .2s ease;
+  }
+  .nav-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .nav-toggle[aria-expanded="true"] span:nth-child(2){opacity:0;}
+  .nav-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+  .mobile-nav{
+    display:none; max-height:0; overflow:hidden;
+    background:var(--purple-deep); border-top:1px solid rgba(255,255,255,0.15);
+    transition:max-height .25s ease;
+  }
+  .mobile-nav.open{max-height:500px;}
+  .mobile-nav ul{list-style:none; padding:8px 32px 20px;}
+  .mobile-nav li a{
+    display:block; padding:12px 0; font-size:15px; font-weight:600; color:#fff;
+    border-bottom:1px solid rgba(255,255,255,0.15);
+    text-transform:uppercase; letter-spacing:0.5px;
+  }
+
+  .strata-bar{display:flex; width:100%; height:6px;}
+  .strata-bar div{flex:1;}
+  .strata-bar div:nth-child(1){background:var(--purple);}
+  .strata-bar div:nth-child(2){background:var(--purple-deep);}
+  .strata-bar div:nth-child(3){background:var(--blue);}
+  .strata-bar div:nth-child(4){background:var(--blue-deep);}
+  .strata-bar div:nth-child(5){background:var(--blue);}
+  .strata-bar div:nth-child(6){background:var(--purple);}
+
+  /* ===== PAGE HEADER (image + text split, same component as Home) ===== */
+  .hero-split{
+    display:grid; grid-template-columns:1.05fr 1fr;
+    min-height:320px;
+  }
+  .hero-image{overflow:hidden; background:var(--ink);}
+  .hero-image img{width:100%; height:100%; object-fit:cover; object-position:center 20%; display:block;}
+  .hero-content-split{
+    display:flex; flex-direction:column; justify-content:center;
+    padding:56px 64px; background:var(--tint);
+  }
+  .eyebrow{
+    font-size:12px; font-weight:700; letter-spacing:1.6px; text-transform:uppercase;
+    color:var(--purple); margin-bottom:18px; display:block;
+  }
+  .page-title{font-size:42px; font-weight:800; letter-spacing:-1px; margin-bottom:20px; line-height:1.1;}
+  .page-desc{font-size:16px; color:var(--stone); font-weight:500; line-height:1.65;}
+  .eyebrow{
+    font-size:12px; font-weight:700; letter-spacing:1.6px; text-transform:uppercase;
+    color:var(--purple); margin-bottom:16px; display:block;
+  }
+
+  /* ===== SECTIONS ===== */
+  section{padding:72px 32px;}
+  .section-inner{max-width:1180px; margin:0 auto;}
+  .section-head{max-width:680px; margin-bottom:44px;}
+  .section-eyebrow{
+    font-size:12px; font-weight:700; letter-spacing:1.6px; text-transform:uppercase;
+    color:var(--purple); margin-bottom:12px;
+  }
+  .section-title{font-size:32px; font-weight:800; letter-spacing:-0.5px; margin-bottom:12px;}
+  .section-desc{color:var(--stone); font-size:15px; font-weight:500;}
+  .tint{background:var(--tint);}
+
+  /* ===== DESCRIPTION ===== */
+  .desc-text{max-width:840px; font-size:16px; color:var(--ink); font-weight:500; line-height:1.8;}
+  .desc-text + .desc-text{margin-top:18px;}
+
+  /* ===== FOUNDER / LFO BANNER ===== */
+  .leadership-eyebrow{font-size:18px; letter-spacing:0.5px; margin-bottom:0;}
+  .founder-split{
+    display:grid; grid-template-columns:1fr 220px; gap:32px; align-items:start;
+    max-width:1180px; margin:0 auto; padding:32px 0;
+  }
+  .founder-text-col{
+    display:flex; flex-direction:column; justify-content:center;
+    padding:32px 40px; background:#fff; border-radius:12px; border:1px solid var(--stone-line);
+  }
+  .founder-photo-col{overflow:hidden; aspect-ratio:4/5; border-radius:12px; cursor:pointer; position:relative;}
+  .founder-photo-col::after{
+    content:"Click for full bio"; position:absolute; left:0; right:0; bottom:0;
+    background:rgba(3,18,46,0.75); color:#fff; font-size:10.5px; font-weight:700;
+    text-align:center; padding:6px 4px; letter-spacing:0.2px;
+  }
+  .founder-bio-full{max-height:0; overflow:hidden; transition:max-height .35s ease;}
+  .founder-bio-full.open{max-height:600px; margin-top:14px;}
+  .founder-photo-col{overflow:hidden; aspect-ratio:4/5; border-radius:12px;}
+  .founder-photo-col img{width:100%; height:100%; object-fit:cover; display:block;}
+  .founder-role{font-size:16px; font-weight:800; letter-spacing:0.5px; text-transform:uppercase; color:var(--purple); margin-bottom:10px;}
+  .founder-name{font-size:34px; font-weight:800; margin-bottom:18px; letter-spacing:-0.5px;}
+  .founder-bio{font-size:15px; color:var(--stone); font-weight:500; line-height:1.8; max-width:640px;}
+
+  /* ===== TEAM GRID ===== */
+  .team-grid{
+    display:grid; grid-template-columns:repeat(5, 1fr); gap:14px;
+  }
+  .team-card{
+    background:#fff; border:1px solid var(--stone-line); border-radius:12px; overflow:hidden;
+    transition:border-color .2s ease;
+  }
+  #teamGrid .team-card{cursor:pointer;}
+  .team-card:hover{border-color:var(--purple);}
+  .team-card-head{
+    display:flex; flex-direction:column; align-items:center; text-align:center;
+    padding:0 0 14px;
+  }
+  .team-photo{
+    width:100%; aspect-ratio:4/5; overflow:hidden;
+    background:var(--tint); margin-bottom:12px; flex-shrink:0;
+  }
+  .team-photo img{width:100%; height:100%; object-fit:cover; display:block;}
+  .team-photo.placeholder{
+    display:flex; align-items:center; justify-content:center;
+    color:var(--purple); font-size:20px; font-weight:800;
+  }
+  .team-name{font-size:13.5px; font-weight:700; margin-bottom:3px; line-height:1.3; padding:0 10px;}
+  .team-role-short{font-size:11px; color:var(--stone); font-weight:600; line-height:1.4; padding:0 10px;}
+  .team-chevron{
+    font-size:10px; color:var(--purple); margin-top:8px; font-weight:700;
+    transition:transform .2s ease;
+  }
+  .team-card.open .team-chevron{transform:rotate(180deg);}
+  .team-bio{
+    max-height:0; overflow:hidden; transition:max-height .3s ease;
+    border-top:1px solid var(--stone-line);
+  }
+  .team-card.open .team-bio{max-height:420px;}
+  .team-bio-inner{padding:14px 16px 18px; font-size:12px; color:var(--stone); font-weight:500; line-height:1.6; text-align:left;}
+  .team-email{display:block; margin-top:10px; font-weight:700; color:var(--violet);}
+  .team-social{display:inline-block; margin-top:8px; font-size:11.5px; font-weight:700; color:var(--violet);}
+
+  /* ===== EMPTY STATE ===== */
+  .empty-state{
+    text-align:center; padding:48px 24px; color:var(--stone); font-weight:600; font-size:14px;
+    background:#fff; border:1px dashed var(--stone-line); border-radius:12px;
+  }
+
+  footer{border-top:1px solid var(--stone-line); padding:48px 32px 28px;}
+  .footer-inner{max-width:1180px; margin:0 auto;}
+  .footer-top{display:flex; justify-content:space-between; gap:40px; flex-wrap:wrap; margin-bottom:32px;}
+  .footer-brand p{font-size:13px; color:var(--violet); max-width:280px; margin-top:10px; font-weight:600;}
+  .footer-cols{display:flex; gap:56px; flex-wrap:wrap;}
+  .footer-col h4{font-size:12px; font-weight:700; letter-spacing:0.5px; text-transform:uppercase; color:var(--purple); margin-bottom:14px;}
+  .footer-col a{display:block; font-size:14px; font-weight:600; margin-bottom:10px; color:var(--violet);}
+  .footer-bottom{
+    border-top:1px solid var(--stone-line); padding-top:20px;
+    font-size:12px; color:var(--violet); font-weight:600;
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;
+  }
+
+  @media (max-width:860px){
+    .nav-wrap nav{display:none;}
+    .nav-toggle{display:flex;}
+    .mobile-nav{display:block;}
+    .page-title{font-size:30px;}
+    .hero-split{grid-template-columns:1fr;}
+    .hero-image{height:260px;}
+    .hero-content-split{padding:36px 24px;}
+    .founder-split{grid-template-columns:1fr; padding:24px 0;}
+    .founder-photo-col{aspect-ratio:4/5; width:200px; margin:0 auto; order:-1;}
+    .founder-text-col{padding:32px 24px; text-align:center;}
+    .founder-bio{max-width:none;}
+    .team-grid{grid-template-columns:repeat(2, 1fr); gap:10px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-wrap">
+    <a href="index.html" class="brand">
+      <img src="assets/geol-logo-full-blanco.svg" alt="GeoL — Laboratory for Deep Mining Geoscience & Engineering" style="height:42px; width:auto;">
+    </a>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">Our Lab</a></li>
+        <li><a href="research.html">Research &amp; Publications</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="contact.html">Get Involved</a></li>
+      </ul>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">Our Lab</a></li>
+      <li><a href="research.html">Research &amp; Publications</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="courses.html">Courses</a></li>
+      <li><a href="news.html">News</a></li>
+      <li><a href="contact.html">Get Involved</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="strata-bar"><div></div><div></div><div></div><div></div><div></div><div></div></div>
+
+<div class="hero-split">
+  <div class="hero-image">
+    <img src="images/7167097613_847bc5d10d_o.jpg" alt="Drill core samples from GeoL fieldwork">
+  </div>
+  <div class="hero-content-split">
+    <span class="eyebrow">Who we are</span>
+    <h1 class="page-title">Our Lab</h1>
+    <p class="page-desc">GeoL brings together engineers and researchers working on the geomechanical challenges of deep underground mining — meet the people behind the research.</p>
+
+    <div class="section-eyebrow" style="margin-top:28px;">Description</div>
+    <div class="section-title" style="font-size:24px; margin-bottom:12px;">About GeoL</div>
+    <p class="desc-text" style="font-size:14.5px; max-width:none;">GeoL — Laboratory for Deep Mining Geoscience &amp; Engineering — is a research group focused on the geomechanical and geotechnical challenges of deep underground mining. Our work combines rock mass characterization, numerical modeling, and applied technological innovation, developed alongside academic institutions and mining industry partners.</p>
+  </div>
+</div>
+
+<section class="tint" style="padding-bottom:0;">
+  <div class="section-inner">
+    <div class="section-head" style="margin-bottom:32px;">
+      <div class="section-eyebrow leadership-eyebrow">Leadership</div>
+    </div>
+  </div>
+  <div class="founder-split">
+    <div class="founder-text-col">
+      <div class="founder-role">Founder</div>
+      <div class="founder-name">Luis Felipe Orellana</div>
+      <p class="founder-bio">Currently Assistant Professor at the Department of Mining Engineering, Universidad de Chile, and Associate Researcher at the Advanced Mining Technology Center (AMTC).</p>
+      <div class="founder-bio-full" id="founderBioFull">
+        <p class="founder-bio">Mining Civil Engineer and MSc in Mining Engineering from Universidad de Chile, and PhD in Mechanics (Geomechanics) from the École Polytechnique Fédérale de Lausanne (EPFL), Switzerland. With 15 years of experience in fundamental and applied research, university teaching, academic leadership, and specialized consulting in rock and fault mechanics, deep mining, geomechanical risk, and the intersection of climate change and mining systems — with a focus on mining electromobility.</p>
+        <p class="founder-bio" style="margin-top:14px;">He leads the Deep Mining Geosciences and Engineering Laboratory (GeoL). He is a member of the Editorial Board of the <em>International Journal of Rock Mechanics and Mining Sciences</em>, author of more than 20 articles in Web of Science–indexed journals, and recipient of the Universidad de Chile Best Teacher Award (2022).</p>
+      </div>
+    </div>
+    <div class="founder-photo-col" id="founderPhotoToggle">
+      <img src="team/LFO.jpg" alt="Luis Felipe Orellana">
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-inner">
+    <div class="section-head">
+      <div class="section-eyebrow">The people</div>
+      <div class="section-title">Current Team</div>
+      <p class="section-desc">Engineers and researchers currently working at GeoL.</p>
+    </div>
+<div class="team-grid" id="teamGrid">
+
+      <div class="team-card">
+        <div class="team-card-head">
+          <div class="team-photo"><img src="team/Matias Clunes.jpg" alt="Matías Clunes"></div>
+          <div class="team-name">Matías Clunes</div>
+          <div class="team-role-short">Postdoctoral Researcher</div>
+          <div class="team-chevron">▾</div>
+        </div>
+        <div class="team-bio"><div class="team-bio-inner">Geologist from Universidad de Concepción (2010–2017), with a PhD in Engineering Sciences from Pontificia Universidad Católica de Chile (2019–2023), and postdoctoral researcher at the Rock Mechanics Laboratory of the University of Portsmouth (UK) between 2023 and 2025. Currently a FONDECYT postdoctoral researcher at GeoL. His research spans experimental rock mechanics applied to deep mining and volcanology, complemented by numerical modeling and analog models, along with an interest in the intersection of geology, culture, and conservation.<span class="team-email">matias.clunes@uchile.cl</span></div></div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-head">
+          <div class="team-photo"><img src="team/Carla Valenzuela.jpg" alt="Carla Valenzuela"></div>
+          <div class="team-name">Carla Valenzuela</div>
+          <div class="team-role-short">Postdoctoral Researcher</div>
+          <div class="team-chevron">▾</div>
+        </div>
+        <div class="team-bio"><div class="team-bio-inner">PhD in Geophysics, University of Potsdam and GFZ (Germany). MSc in Geophysics, Universidad de Chile. Experience in seismic clustering, statistical seismology, and source characterization, with a background in Chilean subduction seismicity. Current focus: induced seismicity in deep mining.<span class="team-email">carlavm@uchile.cl</span></div></div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-head">
+          <div class="team-photo"><img src="team/Camilo.jpg" alt="Camilo Espinosa"></div>
+          <div class="team-name">Camilo Espinosa</div>
+          <div class="team-role-short">Project Engineer</div>
+          <div class="team-chevron">▾</div>
+        </div>
+        <div class="team-bio"><div class="team-bio-inner">Civil Electrical Engineer and MSc in Engineering Sciences, Universidad de Chile. His work focuses on applied research in mining processes and signal analysis, with interests spanning deep learning, volcanology, information theory, complex systems, and computational neuroscience — particularly the study of complex phenomena through data analysis.</div></div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-head">
+          <div class="team-photo"><img src="team/Bruno.jpg" alt="Bruno Martínez"></div>
+          <div class="team-name">Bruno Martínez</div>
+          <div class="team-role-short">Project Engineer</div>
+          <div class="team-chevron">▾</div>
+        </div>
+        <div class="team-bio"><div class="team-bio-inner">Civil Mathematical Engineer. Interested in mathematical modeling, optimization, and the development of simulation tools.<span class="team-email">bruno.martinez@amtc.uchile.cl</span></div></div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-head">
+          <div class="team-photo"><img src="team/Mariel.jpg" alt="Mariel Carrión"></div>
+          <div class="team-name">Mariel Carrión</div>
+          <div class="team-role-short">Project Engineer</div>
+          <div class="team-chevron">▾</div>
+        </div>
+        <div class="team-bio"><div class="team-bio-inner">Industrial Civil Mining Engineer, MSc student in Mine Planning at Pontificia Universidad Católica de Chile. Areas of interest: mine planning, sustainable mining, project evaluation, and optimization.<span class="team-email">mariel.mc@uc.cl</span></div></div>
+      </div>
+
+
+      <div class="team-card">
+        <div class="team-card-head">
+          <div class="team-photo"><img src="team/Fernanda.jpeg" alt="Fernanda Espínola"></div>
+          <div class="team-name">Fernanda Espínola</div>
+          <div class="team-role-short">Doctoral Assistant</div>
+          <div class="team-chevron">▾</div>
+        </div>
+        <div class="team-bio"><div class="team-bio-inner">PhD candidate in Mining Engineering, researching how to make the mining transition more sustainable.<span class="team-email">fernanda.espinola@uchile.cl</span></div></div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-head">
+          <div class="team-photo"><img src="team/Diego.jpg" alt="Diego Moreno"></div>
+          <div class="team-name">Diego Moreno</div>
+          <div class="team-role-short">Doctoral Assistant</div>
+          <div class="team-chevron">▾</div>
+        </div>
+        <div class="team-bio"><div class="team-bio-inner">Doctoral thesis on hydraulic fracturing in deep mining.<span class="team-email">diego.moreno.h@uchile.cl</span></div></div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-head">
+          <div class="team-photo"><img src="team/Lucy.jpg" alt="Lucy Bravo"></div>
+          <div class="team-name">Lucy Bravo</div>
+          <div class="team-role-short">Doctoral Assistant</div>
+          <div class="team-chevron">▾</div>
+        </div>
+        <div class="team-bio"><div class="team-bio-inner">Civil Mining Engineer, now a PhD candidate in Mining Engineering focused on geomechanics. Her doctoral research addresses mining-induced seismicity and its relationship to the reactivation of geological faults.<span class="team-email">lucy.bravo@uchile.cl</span></div></div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-head">
+          <div class="team-photo"><img src="team/Paulo.jpg" alt="Paulo Campoverde"></div>
+          <div class="team-name">Paulo Campoverde</div>
+          <div class="team-role-short">Doctoral Assistant</div>
+          <div class="team-chevron">▾</div>
+        </div>
+        <div class="team-bio"><div class="team-bio-inner">Mining Engineer, MSc in Occupational Health and Safety, and PhD candidate in Mining Engineering (Universidad de Chile). Currently a collaborator on the Electromobility in Underground Mining project. Areas of interest: mine planning and design, fleet management, mining safety, artificial intelligence applied to mining, and mining geomatics.<span class="team-email">paulo.campoverde@uchile.cl</span></div></div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-head">
+          <div class="team-photo"><img src="team/Francisca.jpeg" alt="Francisca Valdés"></div>
+          <div class="team-name">Francisca Valdés</div>
+          <div class="team-role-short">MSc Student</div>
+          <div class="team-chevron">▾</div>
+        </div>
+        <div class="team-bio"><div class="team-bio-inner">[Placeholder — short summary of Francisca's area of work.]</div></div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-head">
+          <div class="team-photo"><img src="team/Jose-Ignacio.jpeg" alt="José Ignacio Mera"></div>
+          <div class="team-name">José Ignacio Mera</div>
+          <div class="team-role-short">MSc Student</div>
+          <div class="team-chevron">▾</div>
+        </div>
+        <div class="team-bio"><div class="team-bio-inner">MSc student in Mining Engineering at Universidad de Chile, interested in geology applied to engineering.<span class="team-email">joseignacio.mera@ug.uchile.cl</span></div></div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-head">
+          <div class="team-photo"><img src="team/Roberto.jpeg" alt="Roberto Larregla"></div>
+          <div class="team-name">Roberto Larregla</div>
+          <div class="team-role-short">MSc Student</div>
+          <div class="team-chevron">▾</div>
+        </div>
+        <div class="team-bio"><div class="team-bio-inner">[Placeholder — short summary of Roberto's area of work.]</div></div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-head">
+          <div class="team-photo"><img src="team/Matias Cabezas.jpeg" alt="Matías Cabezas"></div>
+          <div class="team-name">Matías Cabezas</div>
+          <div class="team-role-short">MSc Student</div>
+          <div class="team-chevron">▾</div>
+        </div>
+        <div class="team-bio"><div class="team-bio-inner">Geologist and MSc in Mining, with experience in applied research in geomechanics, hydraulic fracturing, and hydro-mechanical characterization of rocks.<span class="team-email">matias.cabezas@ug.uchile.cl</span></div></div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-head">
+          <div class="team-photo"><img src="team/Daniel.jpg" alt="Daniel Lira"></div>
+          <div class="team-name">Daniel Lira</div>
+          <div class="team-role-short">MSc Student · Co-supervised by L.F. Orellana</div>
+          <div class="team-chevron">▾</div>
+        </div>
+        <div class="team-bio"><div class="team-bio-inner">MSc student in Electrical Engineering, interested in optimization applied to power systems planning and operations research.<span class="team-email">daniel.lira@ug.uchile.cl</span></div></div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-head">
+          <div class="team-photo"><img src="team/Fernando Soto.jpeg" alt="Fernando Soto"></div>
+          <div class="team-name">Fernando Soto</div>
+          <div class="team-role-short">MSc Student · Co-supervised by L.F. Orellana</div>
+          <div class="team-chevron">▾</div>
+        </div>
+        <div class="team-bio"><div class="team-bio-inner">MSc student in Electrical Engineering. Interested in operations management, optimization, and energy systems.<span class="team-email">fernando.soto.n@ug.uchile.cl</span></div></div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-head">
+          <div class="team-photo placeholder">MO</div>
+          <div class="team-name">Martín Ortega</div>
+          <div class="team-role-short">MSc Student</div>
+          <div class="team-chevron">▾</div>
+        </div>
+        <div class="team-bio"><div class="team-bio-inner">[Placeholder — short summary of Martín's area of work.]</div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="tint">
+  <div class="section-inner">
+    <div class="section-head">
+      <div class="section-eyebrow">Alumni</div>
+      <div class="section-title">Past Members</div>
+      <p class="section-desc">Former members of the GeoL team.</p>
+    </div>
+    <div class="team-grid">
+
+      <div class="team-card">
+        <div class="team-card-head">
+          <div class="team-photo"><img src="team/Belén.jpg" alt="Belén Herrera"></div>
+          <div class="team-name">Belén Herrera</div>
+          <div class="team-role-short">Mining Civil Engineer · MSc in Mining</div>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-head">
+          <div class="team-photo"><img src="team/Guillermo.png" alt="Guillermo Martínez"></div>
+          <div class="team-name">Guillermo Martínez</div>
+          <div class="team-role-short">Geologist · MSc in Mining</div>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-head">
+          <div class="team-photo"><img src="team/Javiera.jpeg" alt="Javiera Tillería"></div>
+          <div class="team-name">Javiera Tillería</div>
+          <div class="team-role-short">Alumni · Geologist, MSc in Mining</div>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-head">
+          <div class="team-photo placeholder">JF</div>
+          <div class="team-name">Javiera Fieldhouse</div>
+          <div class="team-role-short">Alumni · Geologist, MSc in Mining</div>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-head">
+          <div class="team-photo placeholder">PF</div>
+          <div class="team-name">Paulina Fernández</div>
+          <div class="team-role-short">Alumni · Geologist, MSc in Mining</div>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-head">
+          <div class="team-photo placeholder">FR</div>
+          <div class="team-name">Franco Robbiano</div>
+          <div class="team-role-short">Alumni · Geologist, MSc in Mining</div>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-head">
+          <div class="team-photo placeholder">TR</div>
+          <div class="team-name">Tomás Roquer</div>
+          <div class="team-role-short">Geologist — Academic at Universidad Técnica Federico Santa María</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="assets/geol-logo-full.svg" alt="GeoL — Deep Mining Geoscience & Engineering" style="height:52px; width:auto; margin-bottom:14px;">
+        <p>Applied research in deep underground mining geomechanics.</p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="index.html">Home</a>
+          <a href="research.html">Research &amp; Publications</a>
+          <a href="projects.html">Projects</a>
+          <a href="courses.html">Courses</a>
+          <a href="news.html">News</a>
+        </div>
+        <div class="footer-col">
+          <h4>Lab</h4>
+          <a href="about.html">Our Lab</a>
+          <a href="contact.html">Get Involved</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 GeoL.</span>
+      <span>Science outreach site</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const navToggle = document.getElementById('navToggle');
+  const mobileNav = document.getElementById('mobileNav');
+  navToggle.addEventListener('click', () => {
+    const isOpen = mobileNav.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    navToggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+  });
+  mobileNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileNav.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  document.getElementById('founderPhotoToggle').addEventListener('click', () => {
+    document.getElementById('founderBioFull').classList.toggle('open');
+  });
+
+  document.querySelectorAll('#teamGrid .team-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const wasOpen = card.classList.contains('open');
+      document.querySelectorAll('#teamGrid .team-card.open').forEach(c => c.classList.remove('open'));
+      if (!wasOpen) card.classList.add('open');
+    });
+  });
+</script>
+
+</body>
+</html>
