@@ -155,6 +155,7 @@
     background:#fff; border:1px solid var(--stone-line); border-radius:12px; overflow:hidden;
     transition:border-color .2s ease;
   }
+  #teamGrid .team-card{cursor:pointer;}
   .team-card:hover{border-color:var(--purple);}
   .team-card-head{
     display:flex; flex-direction:column; align-items:center; text-align:center;
@@ -180,8 +181,9 @@
     max-height:0; overflow:hidden; transition:max-height .3s ease;
     border-top:1px solid var(--stone-line);
   }
-  .team-card.open .team-bio{max-height:260px;}
+  .team-card.open .team-bio{max-height:420px;}
   .team-bio-inner{padding:14px 16px 18px; font-size:12px; color:var(--stone); font-weight:500; line-height:1.6; text-align:left;}
+  .team-email{display:block; margin-top:10px; font-weight:700; color:var(--violet);}
   .team-social{display:inline-block; margin-top:8px; font-size:11.5px; font-weight:700; color:var(--violet);}
 
   /* ===== EMPTY STATE ===== */
@@ -307,7 +309,9 @@
           <div class="team-photo"><img src="team/Matias Clunes.jpg" alt="Matías Clunes"></div>
           <div class="team-name">Matías Clunes</div>
           <div class="team-role-short">Postdoctoral Researcher</div>
+          <div class="team-chevron">▾</div>
         </div>
+        <div class="team-bio"><div class="team-bio-inner">Geologist from Universidad de Concepción (2010–2017), with a PhD in Engineering Sciences from Pontificia Universidad Católica de Chile (2019–2023), and postdoctoral researcher at the Rock Mechanics Laboratory of the University of Portsmouth (UK) between 2023 and 2025. Currently a FONDECYT postdoctoral researcher at GeoL. His research spans experimental rock mechanics applied to deep mining and volcanology, complemented by numerical modeling and analog models, along with an interest in the intersection of geology, culture, and conservation.<span class="team-email">matias.clunes@uchile.cl</span></div></div>
       </div>
 
       <div class="team-card">
@@ -315,7 +319,9 @@
           <div class="team-photo placeholder">CV</div>
           <div class="team-name">Carla Valenzuela</div>
           <div class="team-role-short">Postdoctoral Researcher</div>
+          <div class="team-chevron">▾</div>
         </div>
+        <div class="team-bio"><div class="team-bio-inner">PhD in Geophysics, University of Potsdam and GFZ (Germany). MSc in Geophysics, Universidad de Chile. Experience in seismic clustering, statistical seismology, and source characterization, with a background in Chilean subduction seismicity. Current focus: induced seismicity in deep mining.<span class="team-email">carlavm@uchile.cl</span></div></div>
       </div>
 
       <div class="team-card">
@@ -323,7 +329,9 @@
           <div class="team-photo"><img src="team/Camilo.jpg" alt="Camilo Espinosa"></div>
           <div class="team-name">Camilo Espinosa</div>
           <div class="team-role-short">Project Engineer</div>
+          <div class="team-chevron">▾</div>
         </div>
+        <div class="team-bio"><div class="team-bio-inner">Civil Electrical Engineer and MSc in Engineering Sciences, Universidad de Chile. His work focuses on applied research in mining processes and signal analysis, with interests spanning deep learning, volcanology, information theory, complex systems, and computational neuroscience — particularly the study of complex phenomena through data analysis.</div></div>
       </div>
 
       <div class="team-card">
@@ -331,7 +339,9 @@
           <div class="team-photo"><img src="team/Bruno.jpg" alt="Bruno Martínez"></div>
           <div class="team-name">Bruno Martínez</div>
           <div class="team-role-short">Project Engineer</div>
+          <div class="team-chevron">▾</div>
         </div>
+        <div class="team-bio"><div class="team-bio-inner">Civil Mathematical Engineer. Interested in mathematical modeling, optimization, and the development of simulation tools.<span class="team-email">bruno.martinez@amtc.uchile.cl</span></div></div>
       </div>
 
       <div class="team-card">
@@ -339,7 +349,9 @@
           <div class="team-photo"><img src="team/Mariel.jpg" alt="Mariel Carrión"></div>
           <div class="team-name">Mariel Carrión</div>
           <div class="team-role-short">Project Engineer</div>
+          <div class="team-chevron">▾</div>
         </div>
+        <div class="team-bio"><div class="team-bio-inner">Industrial Civil Mining Engineer, MSc student in Mine Planning at Pontificia Universidad Católica de Chile. Areas of interest: mine planning, sustainable mining, project evaluation, and optimization.<span class="team-email">mariel.mc@uc.cl</span></div></div>
       </div>
 
       <div class="team-card">
@@ -347,7 +359,9 @@
           <div class="team-photo placeholder">MO</div>
           <div class="team-name">Martín Ortega</div>
           <div class="team-role-short">Project Engineer</div>
+          <div class="team-chevron">▾</div>
         </div>
+        <div class="team-bio"><div class="team-bio-inner">[Placeholder — short summary of Martín's area of work.]</div></div>
       </div>
 
       <div class="team-card">
@@ -355,7 +369,9 @@
           <div class="team-photo"><img src="team/Fernanda.jpeg" alt="Fernanda Espínola"></div>
           <div class="team-name">Fernanda Espínola</div>
           <div class="team-role-short">Doctoral Assistant</div>
+          <div class="team-chevron">▾</div>
         </div>
+        <div class="team-bio"><div class="team-bio-inner">PhD candidate in Mining Engineering, researching how to make the mining transition more sustainable.<span class="team-email">fernanda.espinola@uchile.cl</span></div></div>
       </div>
 
       <div class="team-card">
@@ -363,7 +379,9 @@
           <div class="team-photo"><img src="team/Diego.jpg" alt="Diego Moreno"></div>
           <div class="team-name">Diego Moreno</div>
           <div class="team-role-short">Doctoral Assistant</div>
+          <div class="team-chevron">▾</div>
         </div>
+        <div class="team-bio"><div class="team-bio-inner">Doctoral thesis on hydraulic fracturing in deep mining.<span class="team-email">diego.moreno.h@uchile.cl</span></div></div>
       </div>
 
       <div class="team-card">
@@ -371,7 +389,9 @@
           <div class="team-photo"><img src="team/Lucy.jpg" alt="Lucy Bravo"></div>
           <div class="team-name">Lucy Bravo</div>
           <div class="team-role-short">Doctoral Assistant</div>
+          <div class="team-chevron">▾</div>
         </div>
+        <div class="team-bio"><div class="team-bio-inner">Civil Mining Engineer, now a PhD candidate in Mining Engineering focused on geomechanics. Her doctoral research addresses mining-induced seismicity and its relationship to the reactivation of geological faults.<span class="team-email">lucy.bravo@uchile.cl</span></div></div>
       </div>
 
       <div class="team-card">
@@ -379,7 +399,9 @@
           <div class="team-photo"><img src="team/Paulo.jpg" alt="Paulo Campoverde"></div>
           <div class="team-name">Paulo Campoverde</div>
           <div class="team-role-short">Doctoral Assistant</div>
+          <div class="team-chevron">▾</div>
         </div>
+        <div class="team-bio"><div class="team-bio-inner">Mining Engineer, MSc in Occupational Health and Safety, and PhD candidate in Mining Engineering (Universidad de Chile). Currently a collaborator on the Electromobility in Underground Mining project. Areas of interest: mine planning and design, fleet management, mining safety, artificial intelligence applied to mining, and mining geomatics.<span class="team-email">paulo.campoverde@uchile.cl</span></div></div>
       </div>
 
       <div class="team-card">
@@ -387,7 +409,9 @@
           <div class="team-photo"><img src="team/Francisca.jpeg" alt="Francisca Valdés"></div>
           <div class="team-name">Francisca Valdés</div>
           <div class="team-role-short">MSc Student</div>
+          <div class="team-chevron">▾</div>
         </div>
+        <div class="team-bio"><div class="team-bio-inner">[Placeholder — short summary of Francisca's area of work.]</div></div>
       </div>
 
       <div class="team-card">
@@ -395,7 +419,9 @@
           <div class="team-photo"><img src="team/Jose-Ignacio.jpeg" alt="José Ignacio Mera"></div>
           <div class="team-name">José Ignacio Mera</div>
           <div class="team-role-short">MSc Student</div>
+          <div class="team-chevron">▾</div>
         </div>
+        <div class="team-bio"><div class="team-bio-inner">MSc student in Mining Engineering at Universidad de Chile, interested in geology applied to engineering.<span class="team-email">joseignacio.mera@ug.uchile.cl</span></div></div>
       </div>
 
       <div class="team-card">
@@ -403,7 +429,19 @@
           <div class="team-photo"><img src="team/Roberto.jpeg" alt="Roberto Larregla"></div>
           <div class="team-name">Roberto Larregla</div>
           <div class="team-role-short">MSc Student</div>
+          <div class="team-chevron">▾</div>
         </div>
+        <div class="team-bio"><div class="team-bio-inner">[Placeholder — short summary of Roberto's area of work.]</div></div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-head">
+          <div class="team-photo placeholder">MC</div>
+          <div class="team-name">Matías Cabezas</div>
+          <div class="team-role-short">MSc Student</div>
+          <div class="team-chevron">▾</div>
+        </div>
+        <div class="team-bio"><div class="team-bio-inner">Geologist and MSc in Mining, with experience in applied research in geomechanics, hydraulic fracturing, and hydro-mechanical characterization of rocks.<span class="team-email">matias.cabezas@ug.uchile.cl</span></div></div>
       </div>
 
       <div class="team-card">
@@ -411,7 +449,9 @@
           <div class="team-photo"><img src="team/Daniel.jpg" alt="Daniel Lira"></div>
           <div class="team-name">Daniel Lira</div>
           <div class="team-role-short">MSc Student · Co-supervised by L.F. Orellana</div>
+          <div class="team-chevron">▾</div>
         </div>
+        <div class="team-bio"><div class="team-bio-inner">MSc student in Electrical Engineering, interested in optimization applied to power systems planning and operations research.<span class="team-email">daniel.lira@ug.uchile.cl</span></div></div>
       </div>
 
       <div class="team-card">
@@ -419,7 +459,9 @@
           <div class="team-photo"><img src="team/Fernando.jpg" alt="Fernando Soto"></div>
           <div class="team-name">Fernando Soto</div>
           <div class="team-role-short">MSc Student · Co-supervised by L.F. Orellana</div>
+          <div class="team-chevron">▾</div>
         </div>
+        <div class="team-bio"><div class="team-bio-inner">MSc student in Electrical Engineering. Interested in operations management, optimization, and energy systems.<span class="team-email">fernando.soto.n@ug.uchile.cl</span></div></div>
       </div>
 
     </div>
@@ -542,6 +584,14 @@
 
   document.getElementById('founderPhotoToggle').addEventListener('click', () => {
     document.getElementById('founderBioFull').classList.toggle('open');
+  });
+
+  document.querySelectorAll('#teamGrid .team-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const wasOpen = card.classList.contains('open');
+      document.querySelectorAll('#teamGrid .team-card.open').forEach(c => c.classList.remove('open'));
+      if (!wasOpen) card.classList.add('open');
+    });
   });
 </script>
 
