@@ -149,7 +149,7 @@
 
   /* ===== TEAM GRID ===== */
   .team-grid{
-    display:grid; grid-template-columns:repeat(auto-fill, minmax(165px, 1fr)); gap:14px;
+    display:grid; grid-template-columns:repeat(5, 1fr); gap:14px;
   }
   .team-card{
     background:#fff; border:1px solid var(--stone-line); border-radius:12px; overflow:hidden;
@@ -217,7 +217,7 @@
     .founder-photo-col{aspect-ratio:4/5; width:200px; margin:0 auto; order:-1;}
     .founder-text-col{padding:32px 24px; text-align:center;}
     .founder-bio{max-width:none;}
-    .team-grid{gap:10px;}
+    .team-grid{grid-template-columns:repeat(2, 1fr); gap:10px;}
   }
 </style>
 </head>
@@ -354,15 +354,6 @@
         <div class="team-bio"><div class="team-bio-inner">Industrial Civil Mining Engineer, MSc student in Mine Planning at Pontificia Universidad Católica de Chile. Areas of interest: mine planning, sustainable mining, project evaluation, and optimization.<span class="team-email">mariel.mc@uc.cl</span></div></div>
       </div>
 
-      <div class="team-card">
-        <div class="team-card-head">
-          <div class="team-photo placeholder">MO</div>
-          <div class="team-name">Martín Ortega</div>
-          <div class="team-role-short">Project Engineer</div>
-          <div class="team-chevron">▾</div>
-        </div>
-        <div class="team-bio"><div class="team-bio-inner">[Placeholder — short summary of Martín's area of work.]</div></div>
-      </div>
 
       <div class="team-card">
         <div class="team-card-head">
@@ -462,6 +453,16 @@
           <div class="team-chevron">▾</div>
         </div>
         <div class="team-bio"><div class="team-bio-inner">MSc student in Electrical Engineering. Interested in operations management, optimization, and energy systems.<span class="team-email">fernando.soto.n@ug.uchile.cl</span></div></div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-head">
+          <div class="team-photo placeholder">MO</div>
+          <div class="team-name">Martín Ortega</div>
+          <div class="team-role-short">MSc Student</div>
+          <div class="team-chevron">▾</div>
+        </div>
+        <div class="team-bio"><div class="team-bio-inner">[Placeholder — short summary of Martín's area of work.]</div></div>
       </div>
 
     </div>
